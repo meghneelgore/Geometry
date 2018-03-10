@@ -11,18 +11,19 @@ public class Segment {
     private final Point p1;
     private final Point p2;
 
+
     enum Orientation {
-        COLLINEAR(0),
-        CLOCKWISE(1),
-        COUNTER_CLOCKWISE(2);
+        COLLINEAR,
+        CLOCKWISE,
+        COUNTER_CLOCKWISE;
+    }
 
-        int orientation;
+    public Point getP1() {
+        return p1;
+    }
 
-        Orientation(int orientation) {
-            this.orientation = orientation;
-        }
-
-
+    public Point getP2() {
+        return p2;
     }
 
     /**
@@ -35,6 +36,10 @@ public class Segment {
         this.p2 = p2;
     }
 
+    public double length() {
+        return Math.sqrt(Math.pow(p1.getX() - p2.getX(), 2) + Math.pow(p1.getY() - p2.getY(), 2));
+    }
+
     /**
      * @param s
      * @return
@@ -42,7 +47,7 @@ public class Segment {
     public boolean isParallelTo(Segment s) {
         if (s == this) return true; //Minor optimization
         if (this.isVertical() && s.isVertical()) return true;
-
+        if (this.isHorizontal() && s.isHorizontal()) return true;
         return this.slope() == s.slope();
     }
 
@@ -70,44 +75,43 @@ public class Segment {
             return true;
 
         // Special Cases
-        // p1, q1 and p2 are colinear and p2 lies on segment p1q1
+        // p1, q1 and p2 are collinear and p2 lies on segment p1q1
         if (o1 == COLLINEAR && onSegment(this, p2)) return true;
 
-        // p1, q1 and q2 are colinear and q2 lies on segment p1q1
+        // p1, q1 and q2 are collinear and q2 lies on segment p1q1
         if (o2 == COLLINEAR && onSegment(this, q2)) return true;
 
-        // p2, q2 and p1 are colinear and p1 lies on segment p2q2
+        // p2, q2 and p1 are collinear and p1 lies on segment p2q2
         if (o3 == COLLINEAR && onSegment(s, p1)) return true;
 
-        // p2, q2 and q1 are colinear and q1 lies on segment p2q2
+        // p2, q2 and q1 are collinear and q1 lies on segment p2q2
         if (o4 == COLLINEAR && onSegment(s, q1)) return true;
 
         return false; // Doesn't fall in any of the above cases
     }
 
-
-    private double slope() {
+    double slope() {
         if (isVertical()) throw new IllegalStateException("Line segment is vertical with undefinted slome");
         return getRise() / getRun();
     }
 
-    private boolean isVertical() {
+    boolean isVertical() {
         return getRun() == 0;
     }
 
-    private boolean isHorizontal() {
+    boolean isHorizontal() {
         return getRise() == 0;
     }
 
-    private double getRun() {
+    double getRun() {
         return p2.getX() - p1.getX();
     }
 
-    private double getRise() {
+    double getRise() {
         return p2.getY() - p1.getY();
     }
 
-    private Orientation getThreePointOrientation(Point p, Point q, Point r) {
+    Orientation getThreePointOrientation(Point p, Point q, Point r) {
         double val = (q.getY() - p.getY()) * (r.getX() - q.getX()) -
                 (q.getX() - p.getX()) * (r.getY() - q.getY());
 
@@ -118,7 +122,7 @@ public class Segment {
         return COUNTER_CLOCKWISE;
     }
 
-    private boolean onSegment(Segment segment, Point q) {
+    boolean onSegment(Segment segment, Point q) {
 
         final Point p = segment.p1;
         final Point r = segment.p2;
@@ -127,6 +131,15 @@ public class Segment {
                 q.getY() <= max(p.getY(), r.getY()) && q.getY() >= min(p.getY(), r.getY()))
             return true;
 
+        return false;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Segment) {
+            Segment that = (Segment) obj;
+            return this.p1.equals(that.p1) && this.p1.equals(that.p2);
+        }
         return false;
     }
 }
