@@ -1,6 +1,7 @@
 package com.meghneelgore.geometry;
 
-import static com.meghneelgore.geometry.Segment.Orientation.*;
+import static com.meghneelgore.geometry.Point.Orientation.COLLINEAR;
+import static com.meghneelgore.geometry.Point.getThreePointOrientation;
 import static java.lang.Math.max;
 import static java.lang.Math.min;
 
@@ -11,12 +12,6 @@ public class Segment {
     private final Point p1;
     private final Point p2;
 
-
-    enum Orientation {
-        COLLINEAR,
-        CLOCKWISE,
-        COUNTER_CLOCKWISE;
-    }
 
     public Point getP1() {
         return p1;
@@ -65,10 +60,10 @@ public class Segment {
 
         // Find the four orientations needed for general and
         // special cases
-        Orientation o1 = getThreePointOrientation(p1, q1, p2);
-        Orientation o2 = getThreePointOrientation(p1, q1, q2);
-        Orientation o3 = getThreePointOrientation(p2, q2, p1);
-        Orientation o4 = getThreePointOrientation(p2, q2, q1);
+        Point.Orientation o1 = getThreePointOrientation(p1, q1, p2);
+        Point.Orientation o2 = getThreePointOrientation(p1, q1, q2);
+        Point.Orientation o3 = getThreePointOrientation(p2, q2, p1);
+        Point.Orientation o4 = getThreePointOrientation(p2, q2, q1);
 
         // General case
         if (o1 != o2 && o3 != o4)
@@ -111,19 +106,8 @@ public class Segment {
         return p2.getY() - p1.getY();
     }
 
-    Orientation getThreePointOrientation(Point p, Point q, Point r) {
-        double val = (q.getY() - p.getY()) * (r.getX() - q.getX()) -
-                (q.getX() - p.getX()) * (r.getY() - q.getY());
-
-        if (val == 0) return COLLINEAR;
-        if (val > 0) {
-            return CLOCKWISE;
-        }
-        return COUNTER_CLOCKWISE;
-    }
 
     boolean onSegment(Segment segment, Point q) {
-
         final Point p = segment.p1;
         final Point r = segment.p2;
 

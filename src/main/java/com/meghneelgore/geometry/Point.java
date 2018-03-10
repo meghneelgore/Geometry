@@ -1,5 +1,7 @@
 package com.meghneelgore.geometry;
 
+import static com.meghneelgore.geometry.Point.Orientation.*;
+
 /**
  * Class depicting a point in 2-d space
  */
@@ -52,6 +54,13 @@ public class Point {
         return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
     }
 
+    enum Orientation {
+        COLLINEAR,
+        CLOCKWISE,
+        COUNTER_CLOCKWISE;
+    }
+
+
     /**
      * toString method
      *
@@ -85,5 +94,25 @@ public class Point {
     @Override
     public int hashCode() {
         return Double.hashCode(x * y);
+    }
+
+    /**
+     * Gives the three-point-orientation of three points. Three points on a 2-D plane can have three possible
+     * orientations, viz., clockwise ↻, counter-clockwise ↺, or collinear.
+     *
+     * @param p Point 1
+     * @param q Point 2
+     * @param r Point 3
+     * @return {@code CLOCKWISE}, {@code COUNTER_CLOCKWISE}, or {@code COLLINEAR} depending on the orientation
+     */
+    public static Orientation getThreePointOrientation(Point p, Point q, Point r) {
+        double val = (q.getY() - p.getY()) * (r.getX() - q.getX()) -
+                (q.getX() - p.getX()) * (r.getY() - q.getY());
+
+        if (val == 0) return COLLINEAR;
+        if (val > 0) {
+            return CLOCKWISE;
+        }
+        return COUNTER_CLOCKWISE;
     }
 }
