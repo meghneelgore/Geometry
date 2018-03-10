@@ -116,5 +116,5 @@ public class TestSegment {
 
         Assert.assertTrue("Intersecting segments calculated as non-intersecting", segment1.intersectsWith(segment2));
     }
-    
+
 }
