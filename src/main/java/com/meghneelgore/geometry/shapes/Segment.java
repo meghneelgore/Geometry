@@ -1,4 +1,7 @@
-package com.meghneelgore.geometry;
+package com.meghneelgore.geometry.shapes;
+
+import com.google.common.collect.ImmutableList;
+import com.meghneelgore.geometry.Point;
 
 import static com.meghneelgore.geometry.Point.Orientation.COLLINEAR;
 import static com.meghneelgore.geometry.Point.getThreePointOrientation;
@@ -8,30 +11,20 @@ import static java.lang.Math.min;
 /**
  *
  */
-public class Segment {
-    private final Point p1;
-    private final Point p2;
-
-
-    public Point getP1() {
-        return p1;
-    }
-
-    public Point getP2() {
-        return p2;
-    }
+public class Segment extends BaseShape {
 
     /**
      * @param p1
      * @param p2
      */
     public Segment(Point p1, Point p2) {
+        super(ImmutableList.of(p1, p2));
         if (p1.equals(p2)) throw new IllegalArgumentException();
-        this.p1 = p1;
-        this.p2 = p2;
     }
 
     public double length() {
+        Point p1 = pointsList.get(0);
+        Point p2 = pointsList.get(1);
         return Math.sqrt(Math.pow(p1.getX() - p2.getX(), 2) + Math.pow(p1.getY() - p2.getY(), 2));
     }
 
@@ -53,10 +46,10 @@ public class Segment {
     }
 
     public boolean intersectsWith(Segment s) {
-        final Point p1 = this.p1;
-        final Point q1 = this.p2;
-        final Point p2 = s.p1;
-        final Point q2 = s.p2;
+        final Point p1 = this.pointsList.get(0);
+        final Point q1 = this.pointsList.get(1);
+        final Point p2 = s.pointsList.get(0);
+        final Point q2 = s.pointsList.get(1);
 
         // Find the four orientations needed for general and
         // special cases
@@ -99,17 +92,17 @@ public class Segment {
     }
 
     double getRun() {
-        return p2.getX() - p1.getX();
+        return pointsList.get(1).getX() - pointsList.get(0).getX();
     }
 
     double getRise() {
-        return p2.getY() - p1.getY();
+        return pointsList.get(1).getY() - pointsList.get(0).getY();
     }
 
 
     boolean onSegment(Segment segment, Point q) {
-        final Point p = segment.p1;
-        final Point r = segment.p2;
+        final Point p = segment.pointsList.get(0);
+        final Point r = segment.pointsList.get(1);
 
         if (q.getX() <= max(p.getX(), r.getX()) && q.getX() >= min(p.getX(), r.getX()) &&
                 q.getY() <= max(p.getY(), r.getY()) && q.getY() >= min(p.getY(), r.getY()))
@@ -122,8 +115,13 @@ public class Segment {
     public boolean equals(Object obj) {
         if (obj instanceof Segment) {
             Segment that = (Segment) obj;
-            return this.p1.equals(that.p1) && this.p1.equals(that.p2);
+            return this.pointsList.get(0).equals(that.pointsList.get(1)) && this.pointsList.get(1).equals(that.pointsList.get(1));
         }
+        return false;
+    }
+
+    @Override
+    public boolean overlaps(Shape shape) {
         return false;
     }
 }

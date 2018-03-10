@@ -1,4 +1,4 @@
-group 'K-Nearest'
+group 'Geometry'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
@@ -11,4 +11,5 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile 'com.google.guava:guava:24.0-jre'
 }

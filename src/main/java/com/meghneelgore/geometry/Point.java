@@ -54,7 +54,7 @@ public class Point {
         return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
     }
 
-    enum Orientation {
+    public enum Orientation {
         COLLINEAR,
         CLOCKWISE,
         COUNTER_CLOCKWISE;

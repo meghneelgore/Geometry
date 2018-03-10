@@ -1,5 +1,6 @@
-package com.meghneelgore.geometry;
+package com.meghneelgore.geometry.shapes;
 
+import com.meghneelgore.geometry.Point;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -15,8 +16,8 @@ public class TestSegment {
         Point p1 = new Point(1.1, 2.2);
         Point p2 = new Point(2.2, 1.1);
         Segment s = new Segment(p1, p2);
-        Assert.assertEquals("Initialized point different from retrieved", p1, s.getP1());
-        Assert.assertEquals("Initialized point different from retrieved", p2, s.getP2());
+        Assert.assertEquals("Initialized point different from retrieved", p1, s.pointsList.get(0));
+        Assert.assertEquals("Initialized point different from retrieved", p2, s.pointsList.get(1));
     }
 
     @Test
