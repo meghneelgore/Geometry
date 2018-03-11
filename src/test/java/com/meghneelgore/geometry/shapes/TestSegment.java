@@ -118,4 +118,54 @@ public class TestSegment {
         Assert.assertTrue("Intersecting segments calculated as non-intersecting", segment1.intersectsWith(segment2));
     }
 
+    @Test(expected = IllegalStateException.class)
+    public void testSlopeForVerticalSegment() {
+        Point p1 = new Point(1, 1);
+        Point p2 = new Point(1, 2);
+        Segment s1 = new Segment(p1, p2);
+        s1.slope();
+    }
+
+    @Test
+    public void testSlopeForNonVerticalSegment() {
+        Point p1 = new Point(1, 1);
+        Point p2 = new Point(2, 2);
+        Segment s1 = new Segment(p1, p2);
+        double slope = s1.slope();
+        Assert.assertEquals("Calculated slope is wrong", 1.0, slope, 0.0);
+    }
+
+    @Test
+    public void testFindAngleWith() {
+        Point p1 = new Point(1, 1);
+        Point p2 = new Point(2, 2);
+        Segment s1 = new Segment(p1, p2);
+        p1 = new Point(3, 3);
+        p2 = new Point(4, 4);
+        Segment s2 = new Segment(p1, p2);
+
+        Assert.assertEquals("Angle calculated wrongly", 0.0, s1.findAngleWith(s2), 0.0);
+
+        p1 = new Point(0, 0);
+        p2 = new Point(2, 2);
+        s1 = new Segment(p1, p2);
+        p1 = new Point(2, 0);
+        p2 = new Point(0, 2);
+        s2 = new Segment(p1, p2);
+
+        Assert.assertEquals("Angle calculated wrongly", Math.PI / 2, s1.findAngleWith(s2), 0.0);
+    }
+
+    @Test
+    public void testEquals() {
+        Point p1 = new Point(1, 1);
+        Point p2 = new Point(2, 2);
+        Segment s1 = new Segment(p1, p2);
+        p1 = new Point(1, 1);
+        p2 = new Point(2, 2);
+        Segment s2 = new Segment(p1, p2);
+
+        Assert.assertTrue("Equal segments not computed as equal", s1.equals(s2));
+    }
+
 }
