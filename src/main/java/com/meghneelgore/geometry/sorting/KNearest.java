@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2018.  Meghneel Gore (meghneel.gore@gmail.com)
+ */
+
 package com.meghneelgore.geometry.sorting;
 
 import com.meghneelgore.geometry.Point;
@@ -9,6 +13,8 @@ import java.util.Queue;
 
 /**
  * Given a list of Points (x, y), find the K points nearest to the origin
+ *
+ * @author Meghneel Gore meghneel.gore@gmail.com
  */
 public class KNearest {
 
@@ -17,6 +23,7 @@ public class KNearest {
      *
      * @param listPoints List of given points
      * @param k          Number of points to find
+     *
      * @return List<Point> of k points nearest to the origin from the given list.
      */
     public List<Point> findKNearest(List<Point> listPoints, int k) {

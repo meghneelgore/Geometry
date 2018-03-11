@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2018.  Meghneel Gore (meghneel.gore@gmail.com)
+ */
+
 package com.meghneelgore.geometry.shapes;
 
 import com.google.common.collect.ImmutableList;
@@ -9,19 +13,28 @@ import static java.lang.Math.max;
 import static java.lang.Math.min;
 
 /**
+ * Class depicting a line segment
  *
+ * @author Meghneel Gore meghneel.gore@gmail.com
  */
 public class Segment extends BaseShape {
 
     /**
-     * @param p1
-     * @param p2
+     * Constructor
+     *
+     * @param p1 First point making up the segment
+     * @param p2 Second point making up the segment
      */
     public Segment(Point p1, Point p2) {
         super(ImmutableList.of(p1, p2));
         if (p1.equals(p2)) throw new IllegalArgumentException();
     }
 
+    /**
+     * Returns the length of the segment
+     *
+     * @return The length of the segment
+     */
     public double length() {
         Point p1 = pointsList.get(0);
         Point p2 = pointsList.get(1);
@@ -29,8 +42,11 @@ public class Segment extends BaseShape {
     }
 
     /**
-     * @param s
-     * @return
+     * Determines if this segment is parallel to another one.
+     *
+     * @param s The other segment
+     *
+     * @return true if both this and s are parallel to each other. false otherwise.
      */
     public boolean isParallelTo(Segment s) {
         if (s == this) return true; //Minor optimization
@@ -39,12 +55,26 @@ public class Segment extends BaseShape {
         return this.slope() == s.slope();
     }
 
+    /**
+     * Determines if this segment is perpendicular to another one.
+     *
+     * @param s The other segment.
+     *
+     * @return true if both this and s are perpendicular to each other. false otherwise.
+     */
     public boolean isPerpendicularTo(Segment s) {
         if (this.isVertical() && s.isHorizontal()) return true;
         if (this.isHorizontal() && s.isVertical()) return true;
         return this.slope() == -1 / s.slope();
     }
 
+    /**
+     * Determines whether this segment intersects another.
+     *
+     * @param s The other segment.
+     *
+     * @return true if this segment intersects the other. false otherwise.
+     */
     public boolean intersectsWith(Segment s) {
         final Point p1 = this.pointsList.get(0);
         final Point q1 = this.pointsList.get(1);
@@ -64,45 +94,70 @@ public class Segment extends BaseShape {
 
         // Special Cases
         // p1, q1 and p2 are collinear and p2 lies on segment p1q1
-        if (o1 == COLLINEAR && onSegment(this, p2)) return true;
+        if (o1 == COLLINEAR && onSegment(p2)) return true;
 
         // p1, q1 and q2 are collinear and q2 lies on segment p1q1
-        if (o2 == COLLINEAR && onSegment(this, q2)) return true;
+        if (o2 == COLLINEAR && onSegment(q2)) return true;
 
         // p2, q2 and p1 are collinear and p1 lies on segment p2q2
-        if (o3 == COLLINEAR && onSegment(s, p1)) return true;
+        if (o3 == COLLINEAR && s.onSegment(p1)) return true;
 
         // p2, q2 and q1 are collinear and q1 lies on segment p2q2
-        if (o4 == COLLINEAR && onSegment(s, q1)) return true;
+        if (o4 == COLLINEAR && s.onSegment(q1)) return true;
 
         return false; // Doesn't fall in any of the above cases
     }
 
+    /**
+     * Calculates the slope of the segment.
+     *
+     * @return slope of the segment.
+     */
     double slope() {
         if (isVertical()) throw new IllegalStateException("Line segment is vertical with undefinted slome");
         return getRise() / getRun();
     }
 
+
+    /**
+     * @return true if and only if the segment is vertical
+     */
     boolean isVertical() {
         return getRun() == 0;
     }
 
+    /**
+     * @return true if and only if the segment is horizontal
+     */
     boolean isHorizontal() {
         return getRise() == 0;
     }
 
+    /**
+     * @return The x-expanse of the segment
+     */
     double getRun() {
         return pointsList.get(1).getX() - pointsList.get(0).getX();
     }
 
+    /**
+     * @return The y-expanse of the segment
+     */
     double getRise() {
         return pointsList.get(1).getY() - pointsList.get(0).getY();
     }
 
 
-    boolean onSegment(Segment segment, Point q) {
-        final Point p = segment.pointsList.get(0);
-        final Point r = segment.pointsList.get(1);
+    /**
+     * Determines if a point lies on the segment
+     *
+     * @param q The point
+     *
+     * @return true if and only if point q lies on the segment
+     */
+    boolean onSegment(Point q) {
+        final Point p = pointsList.get(0);
+        final Point r = pointsList.get(1);
 
         if (q.getX() <= max(p.getX(), r.getX()) && q.getX() >= min(p.getX(), r.getX()) &&
                 q.getY() <= max(p.getY(), r.getY()) && q.getY() >= min(p.getY(), r.getY()))
@@ -111,6 +166,11 @@ public class Segment extends BaseShape {
         return false;
     }
 
+    /**
+     * @param obj Some other object
+     *
+     * @return true iff obj is of type Segment and the points of this segment and obj are equal
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Segment) {
@@ -120,6 +180,13 @@ public class Segment extends BaseShape {
         return false;
     }
 
+    /**
+     * Determines if this shape overlaps another
+     *
+     * @param shape The other shape
+     *
+     * @return true iff this shape overlaps the other
+     */
     @Override
     public boolean overlaps(Shape shape) {
         return false;
