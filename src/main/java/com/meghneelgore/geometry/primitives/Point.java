@@ -2,11 +2,11 @@
  * Copyright (c) 2018.  Meghneel Gore (meghneel.gore@gmail.com)
  */
 
-package com.meghneelgore.geometry;
+package com.meghneelgore.geometry.primitives;
 
 import java.util.List;
 
-import static com.meghneelgore.geometry.Point.Orientation.*;
+import static com.meghneelgore.geometry.primitives.Point.Orientation.*;
 
 /**
  * Class depicting a point in 2-d space.
@@ -55,6 +55,13 @@ public class Point {
         return COUNTER_CLOCKWISE;
     }
 
+    /**
+     * Convenience method for three-point orientation
+     *
+     * @param pointList List of points whose orientation is to be determined
+     *
+     * @return Orientation
+     */
     public static Orientation getThreePointOrientation(List<Point> pointList) {
         if (pointList.size() != 3) throw new IllegalArgumentException();
         Point p = pointList.get(0);

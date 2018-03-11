@@ -1,6 +1,6 @@
 package com.meghneelgore.geometry.sorting;
 
-import com.meghneelgore.geometry.Point;
+import com.meghneelgore.geometry.primitives.Point;
 import org.junit.Assert;
 import org.junit.Test;
 

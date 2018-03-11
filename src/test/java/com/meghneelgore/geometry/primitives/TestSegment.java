@@ -1,6 +1,9 @@
-package com.meghneelgore.geometry.shapes;
+/*
+ * Copyright (c) 2018.  Meghneel Gore (meghneel.gore@gmail.com)
+ */
 
-import com.meghneelgore.geometry.Point;
+package com.meghneelgore.geometry.primitives;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -16,17 +19,15 @@ public class TestSegment {
         Point p1 = new Point(1.1, 2.2);
         Point p2 = new Point(2.2, 1.1);
         Segment s = new Segment(p1, p2);
-        Assert.assertEquals("Initialized point different from retrieved", p1, s.pointsList.get(0));
-        Assert.assertEquals("Initialized point different from retrieved", p2, s.pointsList.get(1));
+        Assert.assertEquals("Initialized point different from retrieved", p1, s.getP1());
+        Assert.assertEquals("Initialized point different from retrieved", p2, s.getP2());
     }
 
     @Test
     public void testLength() {
         Point p1 = new Point(1, 1);
         Point p2 = new Point(2, 2);
-
         Segment segment = new Segment(p1, p2);
-
         double length = segment.length();
         Assert.assertEquals("Calculated length is not right", 1.4142135623730951, length, 0.0);
     }
@@ -116,6 +117,15 @@ public class TestSegment {
         segment2 = new Segment(p1, p2);
 
         Assert.assertTrue("Intersecting segments calculated as non-intersecting", segment1.intersectsWith(segment2));
+
+        p1 = new Point(1, 1);
+        p2 = new Point(3, 1);
+        segment1 = new Segment(p1, p2);
+        p1 = new Point(2, 1);
+        p2 = new Point(4, 7);
+        segment2 = new Segment(p1, p2);
+
+        Assert.assertTrue("Intersecting segments calculated as non-intersecting", segment1.intersectsWith(segment2));
     }
 
     @Test(expected = IllegalStateException.class)
@@ -167,5 +177,7 @@ public class TestSegment {
 
         Assert.assertTrue("Equal segments not computed as equal", s1.equals(s2));
     }
+
+
 
 }

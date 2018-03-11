@@ -12,6 +12,20 @@ package com.meghneelgore.geometry.shapes;
 public interface Shape {
 
     /**
+     * Returns the perimeter of the shape
+     *
+     * @return Perimeter in units
+     */
+    double getPerimeter();
+
+    /**
+     * Returns the area of the shape
+     *
+     * @return Area in square units
+     */
+    double getArea();
+
+    /**
      * Determines if this shape overlaps another
      *
      * @param shape The other shape
@@ -19,6 +33,4 @@ public interface Shape {
      * @return true iff this shape overlaps the other
      */
     boolean overlaps(Shape shape);
-
-
 }

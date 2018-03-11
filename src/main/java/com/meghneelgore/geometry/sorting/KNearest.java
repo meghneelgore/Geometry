@@ -4,7 +4,7 @@
 
 package com.meghneelgore.geometry.sorting;
 
-import com.meghneelgore.geometry.Point;
+import com.meghneelgore.geometry.primitives.Point;
 
 import java.util.ArrayList;
 import java.util.List;
