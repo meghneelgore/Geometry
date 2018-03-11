@@ -124,7 +124,7 @@ public class Segment extends BaseShape {
      *
      * @param s2 The other segment
      *
-     * @return Angle in radians between the two segments
+     * @return The minor angle in radians between the two segments
      */
     public double findAngleWith(Segment s2) {
         final Segment s1 = this;
