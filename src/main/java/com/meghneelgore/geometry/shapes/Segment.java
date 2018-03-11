@@ -9,8 +9,7 @@ import com.meghneelgore.geometry.Point;
 
 import static com.meghneelgore.geometry.Point.Orientation.COLLINEAR;
 import static com.meghneelgore.geometry.Point.getThreePointOrientation;
-import static java.lang.Math.max;
-import static java.lang.Math.min;
+import static java.lang.Math.*;
 
 /**
  * Class depicting a line segment
@@ -112,12 +111,30 @@ public class Segment extends BaseShape {
      * Calculates the slope of the segment.
      *
      * @return slope of the segment.
+     *
+     * @throws IllegalStateException if segment is vertical
      */
-    double slope() {
-        if (isVertical()) throw new IllegalStateException("Line segment is vertical with undefinted slome");
+    public double slope() {
+        if (isVertical()) throw new IllegalStateException("Line segment is vertical with undefined slope");
         return getRise() / getRun();
     }
 
+    /**
+     * Finds the minor angle between this segment and another
+     *
+     * @param s2 The other segment
+     *
+     * @return Angle in radians between the two segments
+     */
+    public double findAngleWith(Segment s2) {
+        final Segment s1 = this;
+        double theta1 = atan2(s1.pointsList.get(0).getY() - s1.pointsList.get(1).getY(),
+                s1.pointsList.get(0).getX() - s1.pointsList.get(1).getX());
+        double theta2 = atan2(s2.pointsList.get(0).getY() - s2.pointsList.get(1).getY(),
+                s2.pointsList.get(0).getX() - s2.pointsList.get(1).getX());
+        double diff = abs(theta1 - theta2);
+        return min(diff, abs(Math.PI * 2 - diff));
+    }
 
     /**
      * @return true if and only if the segment is vertical
@@ -175,7 +192,7 @@ public class Segment extends BaseShape {
     public boolean equals(Object obj) {
         if (obj instanceof Segment) {
             Segment that = (Segment) obj;
-            return this.pointsList.get(0).equals(that.pointsList.get(1)) && this.pointsList.get(1).equals(that.pointsList.get(1));
+            return this.pointsList.get(0).equals(that.pointsList.get(0)) && this.pointsList.get(1).equals(that.pointsList.get(1));
         }
         return false;
     }
@@ -190,5 +207,10 @@ public class Segment extends BaseShape {
     @Override
     public boolean overlaps(Shape shape) {
         return false;
+    }
+
+    @Override
+    public String toString() {
+        return "[" + pointsList.get(0) + " - " + pointsList.get(1) + "]";
     }
 }
