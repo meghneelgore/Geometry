@@ -4,6 +4,8 @@
 
 package com.meghneelgore.geometry;
 
+import java.util.List;
+
 import static com.meghneelgore.geometry.Point.Orientation.*;
 
 /**
@@ -51,6 +53,14 @@ public class Point {
             return CLOCKWISE;
         }
         return COUNTER_CLOCKWISE;
+    }
+
+    public static Orientation getThreePointOrientation(List<Point> pointList) {
+        if (pointList.size() != 3) throw new IllegalArgumentException();
+        Point p = pointList.get(0);
+        Point q = pointList.get(1);
+        Point r = pointList.get(2);
+        return getThreePointOrientation(p, q, r);
     }
 
     /**
