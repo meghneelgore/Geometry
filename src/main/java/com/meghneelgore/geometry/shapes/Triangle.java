@@ -14,6 +14,15 @@ import com.meghneelgore.geometry.Point;
  */
 public class Triangle extends BaseShape {
 
+    /**
+     * Constructor
+     *
+     * @param p1 Point 1
+     * @param p2 Point 2
+     * @param p3 Point 3
+     *
+     * @throws IllegalArgumentException if the points are collinear
+     */
     public Triangle(Point p1, Point p2, Point p3) {
         super(ImmutableList.of(p1, p2, p3));
 
@@ -22,9 +31,19 @@ public class Triangle extends BaseShape {
         }
     }
 
-
+    /**
+     * Constructor
+     *
+     * @param pointsList List of points that makes up a triangle
+     *
+     * @throws IllegalArgumentException if the points are collinear
+     * @throws IllegalArgumentException if pointsList contains any number of points other than 3
+     */
     public Triangle(ImmutableList<Point> pointsList) {
         super(pointsList);
+        if (Point.getThreePointOrientation(pointsList) == Point.Orientation.COLLINEAR) {
+            throw new IllegalArgumentException();
+        }
     }
 
     /**
