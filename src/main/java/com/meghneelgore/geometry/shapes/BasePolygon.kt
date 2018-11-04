@@ -8,6 +8,7 @@ import com.google.common.collect.ImmutableList
 import com.meghneelgore.geometry.primitives.Point
 import com.meghneelgore.geometry.primitives.Segment
 import com.meghneelgore.geometry.shapes.Polygon.PolygonType
+import com.meghneelgore.geometry.shapes.Polygon.PolygonType.Concave
 import com.meghneelgore.geometry.shapes.Polygon.PolygonType.Convex
 
 /**
@@ -24,37 +25,20 @@ abstract class BasePolygon
 protected constructor(pointsList: ImmutableList<Point>) : Polygon {
 
     /**
-     * List of points that make up the shape
-     */
-    protected val pointsList: ImmutableList<Point>
-
-
-    /**
      * List of segments that make up the shape
      */
-    override val segmentsList: ImmutableList<Segment>
+    override val segmentsList: ImmutableList<Segment> = makeSegments(pointsList)
 
     /**
      * Save the perimeter of the shape
      */
-    /**
-     * Returns the perimeter of the shape
-     *
-     * @return the perimeter
-     */
-    override val perimeter: Double
+    override val perimeter: Double = findPerimeter(segmentsList)
 
     /**
      * Polygon type of the polygon. Possible types are Complex, Convex, or Concave
      */
-    override val polygonType: PolygonType
+    override val polygonType: PolygonType = findPolygonType(segmentsList)
 
-    init {
-        this.pointsList = pointsList
-        this.segmentsList = makeSegments(pointsList)
-        this.perimeter = findPerimeter(segmentsList)
-        this.polygonType = findPolygonType(segmentsList)
-    }
 
     /**
      * Determines if this shape overlaps another
@@ -78,7 +62,7 @@ protected constructor(pointsList: ImmutableList<Point>) : Polygon {
      * @return List of Segments
      */
     fun makeSegments(pointsList: ImmutableList<Point>): ImmutableList<Segment> {
-        if (pointsList.size <= 1) throw IllegalArgumentException()
+        if (pointsList.size <= 2) throw IllegalArgumentException()
 
         var i = 0
         val builder = ImmutableList.Builder<Segment>()
@@ -105,9 +89,20 @@ protected constructor(pointsList: ImmutableList<Point>) : Polygon {
         return perimeter
     }
 
-    internal fun findPolygonType(segmentsList: ImmutableList<Segment>): PolygonType {
+    /**
+     * Finds whether the polygon is Convex or Concave
+     */
+    // TODO this doesn't work right now
+    private fun findPolygonType(segmentsList: ImmutableList<Segment>): PolygonType {
+        for (i in 0 until segmentsList.size) {
+            val segment1 = segmentsList[i]
+            val segment2 = segmentsList[i + 1]
+            if (segment1.anticlockwiseAngleWith(segment2) < Math.PI) return Concave
+        }
+        val segment1 = segmentsList[segmentsList.size - 1]
+        val segment2 = segmentsList[0]
+        if (segment1.anticlockwiseAngleWith(segment2) < Math.PI) return Concave
 
         return Convex
-
     }
 }

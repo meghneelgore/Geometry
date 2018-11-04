@@ -42,9 +42,10 @@ class Triangle : BasePolygon {
      * @throws IllegalArgumentException if pointsList contains any number of points other than 3
      */
     constructor(pointsList: ImmutableList<Point>) : super(pointsList) {
-        if (Point.getThreePointOrientation(pointsList) === Point.Orientation.COLLINEAR) {
-            throw IllegalArgumentException()
-        }
+        if (pointsList.size != 3) throw IllegalArgumentException()
+        if (Point.getThreePointOrientation(pointsList) === Point.Orientation.COLLINEAR) throw IllegalArgumentException()
+
+
         this.area = area()
     }
 
@@ -56,7 +57,7 @@ class Triangle : BasePolygon {
      *
      * @return Area of triangle in sq units
      */
-    internal fun area(): Double {
+    private fun area(): Double {
         val halfPerimeter = perimeter / 2
         var productOfDifferences = 1.0
         for (s in segmentsList) {

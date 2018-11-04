@@ -22,7 +22,7 @@ class KNearest {
      * @param k          Number of points to find
      *
      * @return List<Point> of k points nearest to the origin from the given list.
-    </Point> */
+     */
     fun findKNearest(listPoints: List<Point>, k: Int): List<Point> {
         if (k > listPoints.size) throw IllegalArgumentException("K is greater than number of points")
         var count = 0
