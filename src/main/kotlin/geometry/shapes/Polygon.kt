@@ -5,6 +5,7 @@
 package geometry.shapes
 
 import com.google.common.collect.ImmutableList
+import geometry.primitives.Point
 import geometry.primitives.Segment
 
 /**
@@ -13,6 +14,11 @@ import geometry.primitives.Segment
  * @author Meghneel Gore meghneel.gore@gmail.com
  */
 interface Polygon {
+
+    /**
+     * The list of points making up the polygon in an anticlockwise direction
+     */
+    val pointsList: ImmutableList<Point>
 
     /**
      * The list of segments making up the polygon
@@ -47,6 +53,17 @@ interface Polygon {
      * @return true iff this shape overlaps the other
      */
     fun overlaps(polygon: Polygon): Boolean
+
+    /**
+     * Translates the current polygon and returns a new Polygon translated in the x direction
+     */
+    fun translateX(translation: Double): Polygon
+
+    /**
+     * Translates the current polygon and returns a new Polygon translated in the y direction
+     */
+    fun translateY(translation: Double): Polygon
+
 
     enum class PolygonType {
         Convex,

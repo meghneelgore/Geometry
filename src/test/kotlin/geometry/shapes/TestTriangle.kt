@@ -7,7 +7,7 @@ package geometry.shapes
 import com.google.common.collect.ImmutableList
 import geometry.primitives.Point
 import geometry.primitives.Segment
-import geometry.shapes.Triangle
+import junit.framework.Assert.assertEquals
 import org.junit.Assert
 import org.junit.Test
 
@@ -116,7 +116,33 @@ class TestTriangle {
         t2 = Triangle(pointsList)
 
         Assert.assertTrue("Overlapping triangles calculated as non-overlapping", t1.overlaps(t2))
+    }
 
+    @Test
+    fun testTranslateX() {
+        val p1 = Point(1.0, 1.0)
+        val p2 = Point(2.0, 1.0)
+        val p3 = Point(10.0, 10.0)
+        val pointsList = ImmutableList.of(p1, p2, p3)
+        val t1 = Triangle(pointsList)
+        val t2 = t1.translateX(1.0)
 
+        assertEquals("Triangle translated wrongly", t2.pointsList[0].x, 2.0, 0.0)
+        assertEquals("Triangle translated wrongly", t2.pointsList[1].x, 3.0, 0.0)
+        assertEquals("Triangle translated wrongly", t2.pointsList[2].x, 11.0, 0.0)
+    }
+
+    @Test
+    fun testTranslateY() {
+        val p1 = Point(1.0, 1.0)
+        val p2 = Point(2.0, 1.0)
+        val p3 = Point(10.0, 10.0)
+        val pointsList = ImmutableList.of(p1, p2, p3)
+        val t1 = Triangle(pointsList)
+        val t2 = t1.translateY(11.0)
+
+        assertEquals("Triangle translated wrongly", t2.pointsList[0].y, 12.0, 0.0)
+        assertEquals("Triangle translated wrongly", t2.pointsList[1].y, 12.0, 0.0)
+        assertEquals("Triangle translated wrongly", t2.pointsList[2].y, 21.0, 0.0)
     }
 }

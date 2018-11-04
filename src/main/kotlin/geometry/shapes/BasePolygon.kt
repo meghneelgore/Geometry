@@ -28,18 +28,45 @@ protected constructor(pointsList: ImmutableList<Point>) : Polygon {
     /**
      * List of segments that make up the shape
      */
-    override val segmentsList: ImmutableList<Segment> = makeSegments(pointsList)
+    final override val segmentsList: ImmutableList<Segment> = makeSegments(pointsList)
 
     /**
      * Save the perimeter of the shape
      */
-    override val perimeter: Double = findPerimeter(segmentsList)
+    final override val perimeter: Double = findPerimeter(segmentsList)
 
     /**
      * Polygon type of the polygon. Possible types are Complex, Convex, or Concave
      */
-    override val polygonType: PolygonType = findPolygonType(segmentsList)
+    final override val polygonType: PolygonType = findPolygonType(segmentsList)
 
+    /**
+     * Translates this polygon in the x direction and returns a copy
+     */
+    override fun translateX(translation: Double): Polygon {
+        val builder = ImmutableList.builder<Point>()
+        for (point in pointsList) {
+            builder.add(point.translateX(translation))
+        }
+        return this.copyPolygon(builder.build())
+    }
+
+    /**
+     * Translates this polygon in the x direction and returns a copy
+     */
+    override fun translateY(translation: Double): Polygon {
+        val builder = ImmutableList.builder<Point>()
+        for (point in pointsList) {
+            builder.add(point.translateY(translation))
+        }
+        return copyPolygon(builder.build())
+    }
+
+
+    /**
+     * Creates a copy of the polygon with a new points list
+     */
+    abstract fun copyPolygon(pointsList: ImmutableList<Point>): Polygon
 
     /**
      * Determines if this shape overlaps another

@@ -21,6 +21,21 @@ data class Point(val x: Double, val y: Double) {
     val distanceFromOrigin: Double = Math.sqrt(Math.pow(x, 2.0) + Math.pow(y, 2.0))
 
     /**
+     * Creates a new point translated in the x direction
+     */
+    fun translateX(translation: Double): Point {
+        return copy(x = this.x + translation, y = this.y)
+    }
+
+    /**
+     * Creates a new point translated in the y direction
+     */
+    fun translateY(translation: Double): Point {
+        return copy(x = this.x, y = this.y + translation)
+    }
+
+
+    /**
      * toString method
      *
      * @return String representation of the point

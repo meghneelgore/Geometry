@@ -12,7 +12,7 @@ import geometry.primitives.Point
  *
  * @author Meghneel Gore meghneel.gore@gmail.com
  */
-data class Triangle(val pointsList: ImmutableList<Point>) : BasePolygon(pointsList) {
+data class Triangle(override val pointsList: ImmutableList<Point>) : BasePolygon(pointsList) {
 
     /**
      * Calculates area of the triangle using Heron's formula.
@@ -22,7 +22,6 @@ data class Triangle(val pointsList: ImmutableList<Point>) : BasePolygon(pointsLi
      *
      * @return Area of triangle in sq units
      */
-
     override val area: Double
         get() {
             val halfPerimeter = perimeter / 2
@@ -37,6 +36,13 @@ data class Triangle(val pointsList: ImmutableList<Point>) : BasePolygon(pointsLi
     init {
         if (pointsList.size != 3) throw IllegalArgumentException()
         if (Point.getThreePointOrientation(pointsList) === Point.Orientation.COLLINEAR) throw IllegalArgumentException()
+    }
+
+    /**
+     * Creates a copy of Triangle with new points
+     */
+    override fun copyPolygon(pointsList: ImmutableList<Point>): Polygon {
+        return copy(pointsList = pointsList)
     }
 
 }
