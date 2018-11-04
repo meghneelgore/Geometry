@@ -22,6 +22,14 @@ class TestSector {
     fun testArea() {
         val sector = Sector(Point(0.0, 0.0), 10.0, UnitCircleAngle(Math.PI / 2), UnitCircleAngle(Math.PI))
         assertEquals("Wrong area calculated", 78.53981633974483, sector.area, 0.0)
-
     }
+
+    @Test
+    fun testArcLengthAndPerimeter() {
+        val sector = Sector(Point(0.0, 0.0), 10.0, UnitCircleAngle(Math.PI / 2), UnitCircleAngle(Math.PI))
+        assertEquals("Wrong arc length", 15.707963267948966, sector.arcLength, 0.0)
+        assertEquals("Wrong perimeter", 35.707963267948966, sector.perimeter, 0.0)
+    }
+
+
 }
