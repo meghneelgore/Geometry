@@ -12,40 +12,16 @@ import com.meghneelgore.geometry.primitives.Point
  *
  * @author Meghneel Gore meghneel.gore@gmail.com
  */
-class Triangle : BasePolygon {
+data class Triangle(val pointsList: ImmutableList<Point>) : BasePolygon(pointsList) {
 
     /**
      * Area of the triangle
      */
     override val area: Double
 
-    /**
-     * Constructor
-     *
-     * @param p1 Point 1
-     * @param p2 Point 2
-     * @param p3 Point 3
-     * @throws IllegalArgumentException if the points are collinear
-     */
-    constructor(p1: Point, p2: Point, p3: Point) : super(ImmutableList.of<Point>(p1, p2, p3)) {
-        if (Point.getThreePointOrientation(p1, p2, p3) === Point.Orientation.COLLINEAR) {
-            throw IllegalArgumentException("Cannot have a triangle with collinear points")
-        }
-        this.area = area()
-    }
-
-    /**
-     * Constructor
-     *
-     * @param pointsList List of points that makes up a triangle
-     * @throws IllegalArgumentException if the points are collinear
-     * @throws IllegalArgumentException if pointsList contains any number of points other than 3
-     */
-    constructor(pointsList: ImmutableList<Point>) : super(pointsList) {
+    init {
         if (pointsList.size != 3) throw IllegalArgumentException()
         if (Point.getThreePointOrientation(pointsList) === Point.Orientation.COLLINEAR) throw IllegalArgumentException()
-
-
         this.area = area()
     }
 

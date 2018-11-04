@@ -20,7 +20,8 @@ class TestTriangle {
         val p1 = Point(1.0, 1.0)
         val p2 = Point(2.0, 1.0)
         val p3 = Point(10.0, 10.0)
-        val triangle = Triangle(p1, p2, p3)
+        val pointsList = ImmutableList.of(p1, p2, p3)
+        val triangle = Triangle(pointsList)
         val s1 = Segment(p1, p2)
         val s2 = Segment(p2, p3)
         val s3 = Segment(p3, p1)
@@ -35,7 +36,8 @@ class TestTriangle {
         val p1 = Point(1.0, 1.0)
         val p2 = Point(2.0, 2.0)
         val p3 = Point(3.0, 3.0)
-        Triangle(p1, p2, p3)
+        val pointsList = ImmutableList.of(p1, p2, p3)
+        Triangle(pointsList)
     }
 
     @Test
@@ -80,8 +82,8 @@ class TestTriangle {
         val p1 = Point(1.0, 1.0)
         val p2 = Point(2.0, 1.0)
         val p3 = Point(10.0, 10.0)
-        val triangle = Triangle(p1, p2, p3)
-
+        val pointsList = ImmutableList.of(p1, p2, p3)
+        var triangle = Triangle(pointsList)
         Assert.assertEquals("Area calculated wrongly", 4.5000000000000036, triangle.area, 0.0)
     }
 
@@ -90,24 +92,27 @@ class TestTriangle {
         var p1 = Point(1.0, 1.0)
         var p2 = Point(2.0, 1.0)
         var p3 = Point(10.0, 10.0)
-        var t1 = Triangle(p1, p2, p3)
+        var pointsList = ImmutableList.of(p1, p2, p3)
+        var t1 = Triangle(pointsList)
 
         p1 = Point(11.0, 11.0)
         p2 = Point(21.0, 11.0)
         p3 = Point(101.0, 101.0)
-        var t2 = Triangle(p1, p2, p3)
-
+        pointsList = ImmutableList.of(p1, p2, p3)
+        var t2 = Triangle(pointsList)
         Assert.assertFalse("Non-overlapping triangles calculated as overlapping", t1.overlaps(t2))
 
         p1 = Point(0.0, 0.0)
         p2 = Point(20.0, 0.0)
         p3 = Point(0.0, 20.0)
-        t1 = Triangle(p1, p2, p3)
+        pointsList = ImmutableList.of(p1, p2, p3)
+        t1 = Triangle(pointsList)
 
         p1 = Point(1.0, 1.0)
         p2 = Point(21.0, 11.0)
         p3 = Point(101.0, 101.0)
-        t2 = Triangle(p1, p2, p3)
+        pointsList = ImmutableList.of(p1, p2, p3)
+        t2 = Triangle(pointsList)
 
         Assert.assertTrue("Overlapping triangles calculated as non-overlapping", t1.overlaps(t2))
 
