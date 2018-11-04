@@ -15,31 +15,28 @@ import geometry.primitives.Point
 data class Triangle(val pointsList: ImmutableList<Point>) : BasePolygon(pointsList) {
 
     /**
-     * Area of the triangle
-     */
-    override val area: Double
-
-    init {
-        if (pointsList.size != 3) throw IllegalArgumentException()
-        if (Point.getThreePointOrientation(pointsList) === Point.Orientation.COLLINEAR) throw IllegalArgumentException()
-        this.area = area()
-    }
-
-    /**
      * Calculates area of the triangle using Heron's formula.
-     * The formula is given as Area	= Math.sqrt(p * (p − a) * (p − b) *	(p − c))
+     * The formula is given as Area = Math.sqrt(p * (p − a) * (p − b) *	(p − c))
      *
      * Where p is half the perimeter or (a + b + c) / 2
      *
      * @return Area of triangle in sq units
      */
-    private fun area(): Double {
-        val halfPerimeter = perimeter / 2
-        var productOfDifferences = 1.0
-        for (s in segmentsList) {
-            productOfDifferences *= halfPerimeter - s.length
+
+    override val area: Double
+        get() {
+            val halfPerimeter = perimeter / 2
+            var productOfDifferences = 1.0
+            for (s in segmentsList) {
+                productOfDifferences *= halfPerimeter - s.length
+            }
+            productOfDifferences *= halfPerimeter
+            return Math.sqrt(productOfDifferences)
         }
-        productOfDifferences *= halfPerimeter
-        return Math.sqrt(productOfDifferences)
+
+    init {
+        if (pointsList.size != 3) throw IllegalArgumentException()
+        if (Point.getThreePointOrientation(pointsList) === Point.Orientation.COLLINEAR) throw IllegalArgumentException()
     }
+
 }
