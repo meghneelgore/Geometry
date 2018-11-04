@@ -2,13 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a1d17e06-05b5-4544-84a2-349c8a7a19a7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/primitives/Segment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/primitives/Segment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/shapes/BaseShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/shapes/BasePolygon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/shapes/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/shapes/Polygon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/shapes/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/shapes/Triangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/sorting/KNearest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/sorting/KNearest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/meghneelgore/geometry/primitives/TestPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/meghneelgore/geometry/primitives/TestPoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/meghneelgore/geometry/shapes/TestBaseShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/meghneelgore/geometry/shapes/TestBasePolygon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/primitives/Point.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/primitives/Segment.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/shapes/BasePolygon.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/shapes/Triangle.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/sorting/KNearest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/meghneelgore/geometry/primitives/TestPoint.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/meghneelgore/geometry/primitives/TestSegment.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/meghneelgore/geometry/shapes/TestBasePolygon.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/meghneelgore/geometry/shapes/TestTriangle.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/meghneelgore/geometry/sorting/TestKNearest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/primitives/Point.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/primitives/Segment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/shapes/BasePolygon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/shapes/Polygon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/shapes/Polygon.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/shapes/Triangle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/sorting/KNearest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/meghneelgore/geometry/primitives/TestPoint.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/meghneelgore/geometry/primitives/TestSegment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/meghneelgore/geometry/shapes/TestBasePolygon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/meghneelgore/geometry/shapes/TestTriangle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/meghneelgore/geometry/sorting/TestKNearest.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -36,133 +52,131 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="gradle" value="1" />
           <entry key="iml" value="2" />
-          <entry key="java" value="11" />
+          <entry key="java" value="13" />
+          <entry key="kt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="Groovy" value="1" />
           <entry key="IDEA_MODULE" value="2" />
-          <entry key="JAVA" value="11" />
+          <entry key="JAVA" value="13" />
+          <entry key="Kotlin" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="630" />
+          <entry key="gradle" value="5" />
+          <entry key="java" value="819" />
+          <entry key="kt" value="503" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="630" />
+          <entry key="Groovy" value="5" />
+          <entry key="JAVA" value="819" />
+          <entry key="Kotlin" value="503" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/meghneelgore/geometry/shapes/TestTriangle.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1170">
-              <caret line="84" column="87" selection-start-line="84" selection-start-column="87" selection-end-line="84" selection-end-column="87" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/shapes/Triangle.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="478">
-              <caret line="56" column="6" lean-forward="true" selection-start-line="56" selection-start-column="6" selection-end-line="56" selection-end-column="6" />
-              <folding>
-                <element signature="e#1622#1623#0" expanded="true" />
-                <element signature="e#1649#1650#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/meghneelgore/geometry/shapes/TestBasePolygon.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/shapes/Polygon.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="33" column="38" lean-forward="true" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
-              <folding>
-                <element signature="e#0#699#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/primitives/Point.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="858">
-              <caret line="138" column="16" selection-start-line="138" selection-start-column="16" selection-end-line="138" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/primitives/Segment.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/shapes/Triangle.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="440">
-              <caret line="41" column="20" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
+              <caret line="58" column="33" selection-start-line="58" selection-start-column="33" selection-end-line="58" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/meghneelgore/geometry/shapes/TestBasePolygon.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="600">
+              <caret line="47" column="33" selection-start-line="47" selection-start-column="33" selection-end-line="47" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/shapes/BasePolygon.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/shapes/Polygon.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="69" column="21" lean-forward="true" selection-start-line="69" selection-start-column="21" selection-end-line="69" selection-end-column="21" />
+            <state relative-caret-position="255">
+              <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
               <folding>
-                <element signature="e#1753#1754#0" expanded="true" />
-                <element signature="e#1811#1812#0" expanded="true" />
+                <element signature="e#114#212#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/main.iml">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/meghneelgore/geometry/primitives/TestPoint.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+            <state relative-caret-position="90">
+              <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/sorting/KNearest.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/primitives/Point.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="34" column="50" selection-start-line="34" selection-start-column="50" selection-end-line="34" selection-end-column="50" />
+            <state relative-caret-position="226">
+              <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/primitives/Segment.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1117">
+              <caret line="76" column="7" lean-forward="true" selection-start-line="76" selection-start-column="7" selection-end-line="76" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/meghneelgore/geometry/primitives/TestSegment.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="301">
+              <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/shapes/BasePolygon.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="102" column="33" lean-forward="true" selection-start-line="102" selection-start-column="33" selection-end-line="102" selection-end-column="33" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#114#389#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/24.0-jre/4530f6a317a2d55e8903874896537dcf39717b7/guava-24.0-jre-sources.jar!/com/google/common/collect/ImmutableList.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/sorting/KNearest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="59" column="22" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
+            <state relative-caret-position="450">
+              <caret line="34" column="31" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" column="19" lean-forward="true" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -172,6 +186,10 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>copyof(</find>
+      <find>findPerimeter</find>
+      <find>apply plugin “kotlin”</find>
+      <find>gets</find>
+      <find>length</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -224,6 +242,10 @@
                 <option name="name" value="buildDependents" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="inspectClassesForKotlinIC" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="description" value="Displays the sub-projects of root project 'Geometry'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="projects" />
@@ -247,6 +269,10 @@
                 <option name="description" value="Generates Gradle wrapper files." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="wrapper" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="mainClasses" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Assembles test classes." />
@@ -294,6 +320,11 @@
                 <option name="name" value="compileJava" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="description" value="Compiles the compilation 'test' (target  (jvm))." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="compileTestKotlin" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="description" value="Displays the insight into a specific dependency in root project 'Geometry'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="dependencyInsight" />
@@ -334,6 +365,11 @@
                 <option name="name" value="help" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="description" value="Compiles the compilation 'main' (target  (jvm))." />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="compileKotlin" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="description" value="Assembles and tests this project." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="build" />
@@ -355,9 +391,9 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="4623838723000" />
+        <entry key="$PROJECT_DIR$" value="4623853544000" />
         <entry key="$PROJECT_DIR$/.gradle" value="0" />
-        <entry key="$PROJECT_DIR$/build.gradle" value="1811507436" />
+        <entry key="$PROJECT_DIR$/build.gradle" value="1509229144" />
         <entry key="$PROJECT_DIR$/settings.gradle" value="3548444865" />
       </map>
     </option>
@@ -371,6 +407,42 @@
                   <entry key="$PROJECT_DIR$">
                     <value>
                       <ExternalModuleBuildClasspathPojo>
+                        <option name="entries">
+                          <list>
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-gradle-plugin/1.3.0/b378dac6a689f1c74bca6dc0acd266af57c79748/kotlin-gradle-plugin-1.3.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-gradle-plugin-api/1.3.0/6da72eda558a132e46f4f4a8527dde32b8f32943/kotlin-gradle-plugin-api-1.3.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-gradle-plugin-model/1.3.0/b1c6ce3d2a8e715cec9847e98333ecbb2648d323/kotlin-gradle-plugin-model-1.3.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-compiler-embeddable/1.3.0/c56ca8dafc29e93b3a216b62168e658e7bff657d/kotlin-compiler-embeddable-1.3.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-annotation-processing-gradle/1.3.0/eb75ce3fdf49a526de475d0ff6b397f0593f2893/kotlin-annotation-processing-gradle-1.3.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-android-extensions/1.3.0/de508fd043c780bb0b62d3271bffd85c08facf5a/kotlin-android-extensions-1.3.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-compiler-runner/1.3.0/a39743e43de106b0e5b942c1030a452f64353fc9/kotlin-compiler-runner-1.3.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-scripting-compiler-embeddable/1.3.0/d3ff8096e57851fffcf6851d4b7b0cc65c843734/kotlin-scripting-compiler-embeddable-1.3.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.3.0/98515ba3feb571f93b923e61f643bdaed59d14ac/kotlin-stdlib-1.3.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-native-utils/1.3.0/5584413479b93a0d5edeb37c0179e4abd805acd4/kotlin-native-utils-1.3.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-script-runtime/1.3.0/9f968a154aa662ae26a78396f56e46086eb0bef9/kotlin-script-runtime-1.3.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.3.0/2c0e9afd8097b36a2288df59af219bfe2b78ab6d/kotlin-reflect-1.3.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-build-common/1.3.0/312cc4787b4d17a71069dad2b1df71882c173ad3/kotlin-build-common-1.3.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-daemon-client/1.3.0/815fb5d9a0d09660cf13d065d40ed879fe600d03/kotlin-daemon-client-1.3.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.0/8bee30ce9d075088b3d590488a270e2c3ea39b3a/kotlin-stdlib-common-1.3.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/5991ca87ef1fb5544943d9abc5a9a37583fabe03/annotations-13.0-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-gradle-plugin/1.3.0/7e11e020c6d35f9f5aee917f0654e121ec93b3c6/kotlin-gradle-plugin-1.3.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-gradle-plugin-api/1.3.0/b166fab9f3ae23caa2f6c731803114cc39a6a70c/kotlin-gradle-plugin-api-1.3.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-gradle-plugin-model/1.3.0/7fdf2669ecfe739646e7307036bb3588e2047453/kotlin-gradle-plugin-model-1.3.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-compiler-embeddable/1.3.0/6e8167f9aab0f6cfec309c2722f72dc26572a782/kotlin-compiler-embeddable-1.3.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-annotation-processing-gradle/1.3.0/d348139d1750895f6081773c5ef6392cba7139ae/kotlin-annotation-processing-gradle-1.3.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-android-extensions/1.3.0/87970b36b9e1855d0d0e4942865f63a1015026c9/kotlin-android-extensions-1.3.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-compiler-runner/1.3.0/aed39acd6a672619377e5a90d0d9aed7a37e1426/kotlin-compiler-runner-1.3.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-scripting-compiler-embeddable/1.3.0/ac82572a3016d6fd4a3ab00edafb6604fb70aa0a/kotlin-scripting-compiler-embeddable-1.3.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.3.0/a134b0cfe9bb44f98b0b3e889cda07923eea9428/kotlin-stdlib-1.3.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-native-utils/1.3.0/a96fcab88b5546fca05ef7e4f3a87f5a84aa9541/kotlin-native-utils-1.3.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-script-runtime/1.3.0/c7173ea6208fa189fb56d679624fbc5e2026187f/kotlin-script-runtime-1.3.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.3.0/6fd129fd9ba8581f2cb9c58bfd431dda4ee0457e/kotlin-reflect-1.3.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-build-common/1.3.0/b4ac03101fd9e1b9aab001e62a3adc8e85ab7c43/kotlin-build-common-1.3.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-daemon-client/1.3.0/f1abc91057f86f98a661dd9d83ab90562f921e2a/kotlin-daemon-client-1.3.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.0/84a2e0288dc17cd64d692eb1e5e0de8cd5ff0846/kotlin-stdlib-common-1.3.0.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar" />
+                          </list>
+                        </option>
                         <option name="path" value="$PROJECT_DIR$" />
                       </ExternalModuleBuildClasspathPojo>
                     </value>
@@ -470,10 +542,18 @@
         <option value="$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/shapes/BaseShape.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/shapes/Shape.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/shapes/Polygon.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/shapes/BasePolygon.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/shapes/Triangle.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/meghneelgore/geometry/shapes/TestBaseShape.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/meghneelgore/geometry/shapes/TestBasePolygon.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/shapes/BasePolygon.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/shapes/Polygon.kt" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/shapes/BasePolygon.kt" />
+        <option value="$PROJECT_DIR$/src/test/java/com/meghneelgore/geometry/primitives/TestSegment.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/primitives/Point.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/shapes/Triangle.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/sorting/KNearest.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/primitives/Segment.kt" />
       </list>
     </option>
   </component>
@@ -544,6 +624,15 @@
               <item name="Geometry" type="b2602c69:ProjectViewProjectNode" />
               <item name="Geometry" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="geometry" type="462c0819:PsiDirectoryNode" />
+              <item name="sorting" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Geometry" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Geometry" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
@@ -579,15 +668,6 @@
               <item name="geometry" type="462c0819:PsiDirectoryNode" />
               <item name="shapes" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Geometry" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Geometry" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="geometry" type="462c0819:PsiDirectoryNode" />
-              <item name="sorting" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -595,11 +675,11 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541292366868" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541295852822" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="project.kotlinCompiler" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -648,6 +728,12 @@
     <history-entry file="All_in_Geometry_test - 2018.11.03 at 14h 21m 31s.xml">
       <configuration name="All in Geometry_test" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="All_in_Geometry_test - 2018.11.03 at 18h 19m 50s.xml">
+      <configuration name="All in Geometry_test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_Geometry_test - 2018.11.03 at 18h 31m 53s.xml">
+      <configuration name="All in Geometry_test" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1177" extended-state="6" />
@@ -661,7 +747,7 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3299539" />
+      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.3299539" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3299539" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -671,7 +757,7 @@
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Build" order="10" weight="0.3299539" />
-      <window_info anchor="bottom" id="Messages" order="11" visible="true" weight="0.3299539" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.3299539" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -690,14 +776,7 @@
     <entry file="file://$PROJECT_DIR$/src/test/test.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/meghneelgore/geometry/primitives/TestPoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/meghneelgore/geometry/sorting/TestKNearest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/meghneelgore/geometry/sorting/TestKNearest.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="25" column="43" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
@@ -711,16 +790,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/sorting/KNearest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="34" column="50" selection-start-line="34" selection-start-column="50" selection-end-line="34" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/24.0-jre/4530f6a317a2d55e8903874896537dcf39717b7/guava-24.0-jre-sources.jar!/com/google/common/collect/ImmutableList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -728,66 +797,87 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/primitives/Segment.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/meghneelgore/geometry/shapes/TestTriangle.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="41" column="20" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
+        <state relative-caret-position="465">
+          <caret line="33" column="41" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/primitives/Point.java">
+    <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="858">
-          <caret line="138" column="16" selection-start-line="138" selection-start-column="16" selection-end-line="138" selection-end-column="16" />
+        <state relative-caret-position="315">
+          <caret line="21" column="19" lean-forward="true" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/shapes/Polygon.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/shapes/BasePolygon.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
-          <caret line="33" column="38" lean-forward="true" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
+          <caret line="102" column="33" lean-forward="true" selection-start-line="102" selection-start-column="33" selection-end-line="102" selection-end-column="33" />
           <folding>
-            <element signature="e#0#699#0" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#114#389#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/shapes/BasePolygon.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/meghneelgore/geometry/primitives/TestSegment.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="69" column="21" lean-forward="true" selection-start-line="69" selection-start-column="21" selection-end-line="69" selection-end-column="21" />
+        <state relative-caret-position="301">
+          <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/shapes/Triangle.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="58" column="33" selection-start-line="58" selection-start-column="33" selection-end-line="58" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/sorting/KNearest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="34" column="31" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/shapes/Polygon.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
           <folding>
-            <element signature="e#1753#1754#0" expanded="true" />
-            <element signature="e#1811#1812#0" expanded="true" />
+            <element signature="e#114#212#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/shapes/Triangle.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/meghneelgore/geometry/primitives/TestPoint.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="56" column="6" lean-forward="true" selection-start-line="56" selection-start-column="6" selection-end-line="56" selection-end-column="6" />
-          <folding>
-            <element signature="e#1622#1623#0" expanded="true" />
-            <element signature="e#1649#1650#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="90">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/meghneelgore/geometry/shapes/TestBasePolygon.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/primitives/Point.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="226">
+          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/meghneelgore/geometry/shapes/TestTriangle.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/meghneelgore/geometry/primitives/Segment.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1170">
-          <caret line="84" column="87" selection-start-line="84" selection-start-column="87" selection-end-line="84" selection-end-column="87" />
+        <state relative-caret-position="-1117">
+          <caret line="76" column="7" lean-forward="true" selection-start-line="76" selection-start-column="7" selection-end-line="76" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/meghneelgore/geometry/shapes/TestBasePolygon.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="47" column="33" selection-start-line="47" selection-start-column="33" selection-end-line="47" selection-end-column="33" />
         </state>
       </provider>
     </entry>
