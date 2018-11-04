@@ -12,7 +12,7 @@ import com.meghneelgore.geometry.shapes.Polygon.PolygonType.Concave
 import com.meghneelgore.geometry.shapes.Polygon.PolygonType.Convex
 
 /**
- * Abstract base class for shapes.
+ * Abstract base class for Polygons.
  *
  * @author Meghneel Gore meghneel.gore@gmail.com
  */

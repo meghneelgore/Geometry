@@ -7,19 +7,14 @@ package com.meghneelgore.geometry.primitives
 import com.meghneelgore.geometry.primitives.Point.Companion.getThreePointOrientation
 import com.meghneelgore.geometry.primitives.Point.Orientation.COLLINEAR
 import java.lang.Math.*
-import java.util.*
 
 /**
  * Class depicting a line segment
  *
  * @author Meghneel Gore meghneel.gore@gmail.com
  */
-class Segment(val p1: Point, val p2: Point) {
+data class Segment(val p1: Point, val p2: Point) {
 
-    /**
-     * Slope of the segment
-     */
-    private val slope: Double
 
     /**
      * Length of the segment.
@@ -40,48 +35,22 @@ class Segment(val p1: Point, val p2: Point) {
     /**
      * @return true if and only if the segment is vertical
      */
-    internal val isVertical: Boolean = run == 0.0
+    val isVertical: Boolean = run == 0.0
 
     /**
      * @return true if and only if the segment is horizontal
      */
-    internal val isHorizontal: Boolean = rise == 0.0
+    val isHorizontal: Boolean = rise == 0.0
 
+    /**
+     * Slope of the segment
+     */
+    val slope: Double = rise / run
 
     init {
         if (p1 == p2) throw IllegalArgumentException()
-        if (!isVertical) {
-            this.slope = slope()
-        } else {
-            this.slope = java.lang.Long.MIN_VALUE.toDouble()
-        }
     }
 
-    /**
-     * Returns the slope of the segment
-     *
-     * @return Slope
-     *
-     * @throws IllegalStateException if segment is vertical
-     */
-    fun getSlope(): Double {
-        if (!isVertical) {
-            return slope
-        }
-        throw IllegalStateException()
-    }
-
-    /**
-     * Calculates the slope of the segment.
-     *
-     * @return slope of the segment.
-     *
-     * @throws IllegalStateException if segment is vertical
-     */
-    internal fun slope(): Double {
-        if (isVertical) throw IllegalStateException("Line segment is vertical with undefined slope")
-        return rise / run
-    }
 
     /**
      * Determines if this segment is parallel to another one.
@@ -93,7 +62,7 @@ class Segment(val p1: Point, val p2: Point) {
     fun isParallelTo(s: Segment): Boolean {
         if (s === this) return true //Minor optimization
         if (this.isVertical && s.isVertical) return true
-        return if (this.isHorizontal && s.isHorizontal) true else this.slope() == s.slope()
+        return if (this.isHorizontal && s.isHorizontal) true else this.slope == s.slope
     }
 
     /**
@@ -105,7 +74,7 @@ class Segment(val p1: Point, val p2: Point) {
      */
     fun isPerpendicularTo(s: Segment): Boolean {
         if (this.isVertical && s.isHorizontal) return true
-        return if (this.isHorizontal && s.isVertical) true else this.slope() == -1 / s.slope()
+        return if (this.isHorizontal && s.isVertical) true else this.slope == -1 / s.slope
     }
 
     /**
@@ -186,28 +155,6 @@ class Segment(val p1: Point, val p2: Point) {
         return q.x <= max(p.x, r.x) && q.x >= min(p.x, r.x) &&
                 q.y <= max(p.y, r.y) && q.y >= min(p.y, r.y)
 
-    }
-
-    /**
-     * @param other Some other object
-     *
-     * @return true iff other is of type Segment and the points of this segment and other are equal
-     */
-    override fun equals(other: Any?): Boolean {
-        if (other is Segment) {
-            val that = other as Segment?
-            return this.p1 == that!!.p1 && this.p2 == that.p2
-        }
-        return false
-    }
-
-    /**
-     * Calculates a hashcode for this object
-     *
-     * @return hashcode
-     */
-    override fun hashCode(): Int {
-        return Objects.hash(p1, p2)
     }
 
     override fun toString(): String {

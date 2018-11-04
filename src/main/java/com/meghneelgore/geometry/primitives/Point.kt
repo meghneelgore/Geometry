@@ -11,7 +11,7 @@ import com.meghneelgore.geometry.primitives.Point.Orientation.*
  *
  * @author Meghneel Gore meghneel.gore@gmail.com
  */
-class Point(val x: Double, val y: Double) {
+data class Point(val x: Double, val y: Double) {
 
     /**
      * Gets the distance of this point from the origin (0, 0)
@@ -29,13 +29,6 @@ class Point(val x: Double, val y: Double) {
         return "[$x, $y]"
     }
 
-    /**
-     * Returns if the current object is equal to another point depicted by other
-     *
-     * @param other The other object
-     *
-     * @return true if both are equal
-     */
     override fun equals(other: Any?): Boolean {
         if (other == null) return false
         if (other is Point) {
@@ -44,13 +37,10 @@ class Point(val x: Double, val y: Double) {
         return false
     }
 
-    /**
-     * Returns the hashcode for the point
-     *
-     * @return Hashcode for this point
-     */
     override fun hashCode(): Int {
-        return x.hashCode() + y.hashCode()
+        var result = x.hashCode()
+        result = 31 * result + y.hashCode()
+        return result
     }
 
     /**
