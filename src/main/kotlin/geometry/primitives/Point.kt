@@ -29,20 +29,6 @@ data class Point(val x: Double, val y: Double) {
         return "[$x, $y]"
     }
 
-    override fun equals(other: Any?): Boolean {
-        if (other == null) return false
-        if (other is Point) {
-            return this.x == other.x && this.y == other.y
-        }
-        return false
-    }
-
-    override fun hashCode(): Int {
-        var result = x.hashCode()
-        result = 31 * result + y.hashCode()
-        return result
-    }
-
     /**
      * Orientation values
      */
