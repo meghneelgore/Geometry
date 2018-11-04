@@ -4,9 +4,9 @@
 
 package com.meghneelgore.geometry.sorting;
 
+import com.google.common.collect.ImmutableList;
 import com.meghneelgore.geometry.primitives.Point;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
@@ -32,9 +32,7 @@ public class KNearest {
         final Queue<Point> priorityQueue = new PriorityQueue<>((o1, o2) -> {
             double o1Dist = o1.getDistanceFromOrigin();
             double o2Dist = o2.getDistanceFromOrigin();
-            if (o1Dist > o2Dist) return -1;
-            if (o1Dist < o2Dist) return 1;
-            return 0;
+            return Double.compare(o2Dist, o1Dist);
         });
 
         for (Point p : listPoints) {
@@ -44,9 +42,6 @@ public class KNearest {
                 priorityQueue.remove();
             }
         }
-
-        return new ArrayList<>(priorityQueue);
+        return ImmutableList.copyOf(priorityQueue);
     }
-
-
 }

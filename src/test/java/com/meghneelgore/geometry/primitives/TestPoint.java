@@ -4,7 +4,6 @@
 
 package com.meghneelgore.geometry.primitives;
 
-import com.meghneelgore.geometry.primitives.Point;
 import org.junit.Assert;
 import org.junit.Test;
 

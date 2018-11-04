@@ -36,6 +36,7 @@ public class Segment {
      *
      * @param p1 First point making up the segment
      * @param p2 Second point making up the segment
+     * @throws IllegalArgumentException if both points are the same
      */
     public Segment(Point p1, Point p2) {
         if (p1.equals(p2)) throw new IllegalArgumentException();

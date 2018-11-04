@@ -14,13 +14,13 @@ import org.mockito.Mockito;
 /**
  * @author Meghneel Gore meghneel.gore@gmail.com
  * <p>
- * Tests the {@link BaseShape} class
+ * Tests the {@link BasePolygon} class
  */
-public class TestBaseShape {
+public class TestBasePolygon {
 
     @Test
     public void testFindPerimeter() {
-        BaseShape shape = Mockito.mock(BaseShape.class, Mockito.CALLS_REAL_METHODS);
+        BasePolygon shape = Mockito.mock(BasePolygon.class, Mockito.CALLS_REAL_METHODS);
 
         Segment s1 = new Segment(new Point(0, 0), new Point(1, 1));
         Segment s2 = new Segment(new Point(1, 1), new Point(2, 1));
@@ -39,7 +39,7 @@ public class TestBaseShape {
         Segment s1 = new Segment(new Point(0, 0), new Point(1, 1));
         Segment s2 = new Segment(new Point(1, 1), new Point(2, 1));
         Segment s3 = new Segment(new Point(2, 1), new Point(0, 0));
-        BaseShape shape = Mockito.mock(BaseShape.class, Mockito.CALLS_REAL_METHODS);
+        BasePolygon shape = Mockito.mock(BasePolygon.class, Mockito.CALLS_REAL_METHODS);
 
         ImmutableList<Segment> segments = shape.makeSegments(points);
 

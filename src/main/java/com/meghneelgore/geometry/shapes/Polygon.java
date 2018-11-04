@@ -9,7 +9,7 @@ package com.meghneelgore.geometry.shapes;
  *
  * @author Meghneel Gore meghneel.gore@gmail.com
  */
-public interface Shape {
+public interface Polygon {
 
     /**
      * Returns the perimeter of the shape
@@ -28,9 +28,21 @@ public interface Shape {
     /**
      * Determines if this shape overlaps another
      *
-     * @param shape The other shape
-     *
+     * @param polygon The other polygon
      * @return true iff this shape overlaps the other
      */
-    boolean overlaps(Shape shape);
+    boolean overlaps(Polygon polygon);
+
+    /**
+     * Returns the {@code PolygonType} of the polygon
+     *
+     * @return {@code PolygonType.CONVEX} if the polygon is convex, {@code PolygonType.CONCAVE} if the polygon is concave, {@code PolygonType.COMPLEX} otherwise
+     */
+    PolygonType getPolygonType();
+
+    enum PolygonType {
+        CONVEX,
+        COCAVE,
+        COMPLEX
+    }
 }

@@ -13,7 +13,7 @@ import com.meghneelgore.geometry.primitives.Segment;
  *
  * @author Meghneel Gore meghneel.gore@gmail.com
  */
-public class Triangle extends BaseShape {
+public class Triangle extends BasePolygon {
 
     /**
      * Area of the triangle
@@ -26,7 +26,6 @@ public class Triangle extends BaseShape {
      * @param p1 Point 1
      * @param p2 Point 2
      * @param p3 Point 3
-     *
      * @throws IllegalArgumentException if the points are collinear
      */
     public Triangle(Point p1, Point p2, Point p3) {
@@ -42,7 +41,6 @@ public class Triangle extends BaseShape {
      * Constructor
      *
      * @param pointsList List of points that makes up a triangle
-     *
      * @throws IllegalArgumentException if the points are collinear
      * @throws IllegalArgumentException if pointsList contains any number of points other than 3
      */
@@ -63,7 +61,6 @@ public class Triangle extends BaseShape {
     public double getArea() {
         return area;
     }
-
 
     /**
      * Calculates area of the triangle using Heron's formula.

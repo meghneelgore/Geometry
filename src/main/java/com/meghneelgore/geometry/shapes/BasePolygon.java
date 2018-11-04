@@ -8,23 +8,25 @@ import com.google.common.collect.ImmutableList;
 import com.meghneelgore.geometry.primitives.Point;
 import com.meghneelgore.geometry.primitives.Segment;
 
+import java.util.List;
+
 /**
  * Abstract base class for shapes.
  *
  * @author Meghneel Gore meghneel.gore@gmail.com
  */
-public abstract class BaseShape implements Shape {
+public abstract class BasePolygon implements Polygon {
 
     /**
      * List of points that make up the shape
      */
-    protected final ImmutableList<Point> pointsList;
+    protected final List<Point> pointsList;
 
 
     /**
      * List of segments that make up the shape
      */
-    protected final ImmutableList<Segment> segmentsList;
+    protected final List<Segment> segmentsList;
 
     /**
      * Save the perimeter of the shape
@@ -36,32 +38,52 @@ public abstract class BaseShape implements Shape {
      *
      * @param pointsList List of points making up the shape.
      */
-    protected BaseShape(ImmutableList<Point> pointsList) {
+    protected BasePolygon(ImmutableList<Point> pointsList) {
         this.pointsList = pointsList;
         this.segmentsList = makeSegments(pointsList);
         this.perimeter = findPerimeter(segmentsList);
     }
 
     /**
-     * Finds the perimeter of the shape
+     * Returns the perimeter of the shape
      *
-     * @param segmentsList List of segments that makes up the shape
-     *
-     * @return Perimeter of the shape
+     * @return the perimeter
      */
-    double findPerimeter(ImmutableList<Segment> segmentsList) {
-        double perimeter = 0;
-        for (Segment s : segmentsList) {
-            perimeter += s.getLength();
-        }
+    @Override
+    public double getPerimeter() {
         return perimeter;
+    }
+
+    /**
+     * Determines if this shape overlaps another
+     *
+     * @param shape The other shape
+     * @return true iff this shape overlaps the other
+     */
+    @Override
+    public boolean overlaps(Polygon shape) {
+        for (Segment s1 : segmentsList) {
+            for (Segment s2 : ((BasePolygon) shape).segmentsList) {
+                if (s1.intersectsWith(s2)) return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Returns the {@code PolygonType} of the polygon
+     *
+     * @return {@code PolygonType.CONVEX} if the polygon is convex, {@code PolygonType.CONCAVE} if the polygon is concave, {@code PolygonType.COMPLEX} otherwise
+     */
+    @Override
+    public PolygonType getPolygonType() {
+        return PolygonType.CONVEX; // TODO fix this
     }
 
     /**
      * Creates all the segments that make up the shape
      *
      * @param pointsList List of points that make up the shape
-     *
      * @return List of Segments
      */
     ImmutableList<Segment> makeSegments(ImmutableList<Point> pointsList) {
@@ -78,33 +100,16 @@ public abstract class BaseShape implements Shape {
     }
 
     /**
-     * Returns the perimeter of the shape
+     * Finds the perimeter of the shape
      *
-     * @return the perimeter
+     * @param segmentsList List of segments that makes up the shape
+     * @return Perimeter of the shape
      */
-    @Override
-    public double getPerimeter() {
-        return perimeter;
-    }
-
-    public ImmutableList<Segment> getSegmentsList() {
-        return segmentsList;
-    }
-
-    /**
-     * Determines if this shape overlaps another
-     *
-     * @param shape The other shape
-     *
-     * @return true iff this shape overlaps the other
-     */
-    @Override
-    public boolean overlaps(Shape shape) {
-        for (Segment s1 : segmentsList) {
-            for (Segment s2 : ((BaseShape) shape).getSegmentsList()) {
-                if (s1.intersectsWith(s2)) return true;
-            }
+    double findPerimeter(List<Segment> segmentsList) {
+        double perimeter = 0;
+        for (Segment s : segmentsList) {
+            perimeter += s.getLength();
         }
-        return false;
+        return perimeter;
     }
 }
