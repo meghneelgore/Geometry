@@ -1,5 +1,7 @@
-package com.meghneelgore.geometry.primitives
+package geometry.primitives
 
+import geometry.primitives.Circle
+import geometry.primitives.Point
 import junit.framework.TestCase.*
 import org.junit.Test
 

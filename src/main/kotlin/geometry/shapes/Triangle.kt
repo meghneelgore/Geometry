@@ -2,10 +2,10 @@
  * Copyright (c) 2018.  Meghneel Gore (meghneel.gore@gmail.com)
  */
 
-package com.meghneelgore.geometry.shapes
+package geometry.shapes
 
 import com.google.common.collect.ImmutableList
-import com.meghneelgore.geometry.primitives.Point
+import geometry.primitives.Point
 
 /**
  * Class depicting a triangle.

@@ -1,6 +1,7 @@
-package com.meghneelgore.geometry.sorting
+package geometry.sorting
 
-import com.meghneelgore.geometry.primitives.Point
+import geometry.primitives.Point
+import geometry.sorting.KNearest
 import org.junit.Assert
 import org.junit.Test
 

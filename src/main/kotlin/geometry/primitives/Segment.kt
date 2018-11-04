@@ -2,10 +2,10 @@
  * Copyright (c) 2018.  Meghneel Gore (meghneel.gore@gmail.com)
  */
 
-package com.meghneelgore.geometry.primitives
+package geometry.primitives
 
-import com.meghneelgore.geometry.primitives.Point.Companion.getThreePointOrientation
-import com.meghneelgore.geometry.primitives.Point.Orientation.COLLINEAR
+import geometry.primitives.Point.Companion.getThreePointOrientation
+import geometry.primitives.Point.Orientation.COLLINEAR
 import java.lang.Math.*
 
 /**

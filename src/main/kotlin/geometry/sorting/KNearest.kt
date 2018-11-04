@@ -2,10 +2,10 @@
  * Copyright (c) 2018.  Meghneel Gore (meghneel.gore@gmail.com)
  */
 
-package com.meghneelgore.geometry.sorting
+package geometry.sorting
 
 import com.google.common.collect.ImmutableList
-import com.meghneelgore.geometry.primitives.Point
+import geometry.primitives.Point
 import java.util.*
 
 /**

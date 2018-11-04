@@ -2,14 +2,14 @@
  * Copyright (c) 2018.  Meghneel Gore (meghneel.gore@gmail.com)
  */
 
-package com.meghneelgore.geometry.shapes
+package geometry.shapes
 
 import com.google.common.collect.ImmutableList
-import com.meghneelgore.geometry.primitives.Point
-import com.meghneelgore.geometry.primitives.Segment
-import com.meghneelgore.geometry.shapes.Polygon.PolygonType
-import com.meghneelgore.geometry.shapes.Polygon.PolygonType.Concave
-import com.meghneelgore.geometry.shapes.Polygon.PolygonType.Convex
+import geometry.primitives.Point
+import geometry.primitives.Segment
+import geometry.shapes.Polygon.PolygonType
+import geometry.shapes.Polygon.PolygonType.Concave
+import geometry.shapes.Polygon.PolygonType.Convex
 import java.lang.Math.abs
 
 /**

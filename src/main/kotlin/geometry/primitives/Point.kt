@@ -2,9 +2,9 @@
  * Copyright (c) 2018.  Meghneel Gore (meghneel.gore@gmail.com)
  */
 
-package com.meghneelgore.geometry.primitives
+package geometry.primitives
 
-import com.meghneelgore.geometry.primitives.Point.Orientation.*
+import geometry.primitives.Point.Orientation.*
 
 /**
  * Class depicting a point in 2-d space.

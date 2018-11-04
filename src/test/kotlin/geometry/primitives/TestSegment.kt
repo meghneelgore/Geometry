@@ -2,8 +2,10 @@
  * Copyright (c) 2018.  Meghneel Gore (meghneel.gore@gmail.com)
  */
 
-package com.meghneelgore.geometry.primitives
+package geometry.primitives
 
+import geometry.primitives.Point
+import geometry.primitives.Segment
 import org.junit.Assert
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue

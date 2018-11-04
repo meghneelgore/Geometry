@@ -1,4 +1,4 @@
-package com.meghneelgore.geometry.primitives
+package geometry.primitives
 
 data class Circle(val center: Point, val radius: Double) {
     val circumference = 2 * Math.PI * radius

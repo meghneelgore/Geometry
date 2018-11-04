@@ -2,10 +2,10 @@
  * Copyright (c) 2018.  Meghneel Gore (meghneel.gore@gmail.com)
  */
 
-package com.meghneelgore.geometry.shapes
+package geometry.shapes
 
 import com.google.common.collect.ImmutableList
-import com.meghneelgore.geometry.primitives.Segment
+import geometry.primitives.Segment
 
 /**
  * Interface defining the contract for shapes
