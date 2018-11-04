@@ -118,27 +118,16 @@ data class Segment(val p1: Point, val p2: Point) {
     /**
      * Finds the minor angle between this segment and another
      *
-     * @param s2 The other segment
+     * @param segment2 The other segment
      *
      * @return The minor angle in radians between the two segments
      */
-    fun angleWith(s2: Segment): Double {
-        val diff = abs(anticlockwiseAngleWith(s2))
-        return min(diff, abs(Math.PI * 2 - diff))
-    }
-
-    /**
-     * Finds the anticlockwise angle between this and another Segment
-     *
-     * @param segment2 The other segment
-     *
-     * @return The anticlockwise angle in radians
-     */
-    fun anticlockwiseAngleWith(segment2: Segment): Double {
+    fun angleWith(segment2: Segment): Double {
         val segment1 = this
-        val theta1 = atan2(segment1.p1.y - segment1.p2.y, segment1.p1.x - segment1.p2.x)
-        val theta2 = atan2(segment2.p1.y - segment2.p2.y, segment2.p1.x - segment2.p2.x)
-        return theta1 - theta2
+        val theta1 = atan2(segment1.p2.y - segment1.p1.y, segment1.p2.x - segment1.p1.x)
+        val theta2 = atan2(segment2.p2.y - segment2.p1.y, segment2.p2.x - segment2.p1.x)
+        val diff = theta1 - theta2
+        return min(diff, abs(Math.PI * 2 - diff))
     }
 
     /**

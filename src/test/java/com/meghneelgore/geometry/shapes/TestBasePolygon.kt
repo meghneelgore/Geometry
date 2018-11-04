@@ -52,7 +52,6 @@ class TestBasePolygon {
     }
 
     @Test
-    @Ignore
     fun testPolygonTypeConcave() {
         val p1 = Point(0.0, 0.0)
         val p2 = Point(1.0, 0.0)
@@ -68,7 +67,6 @@ class TestBasePolygon {
     }
 
     @Test
-    @Ignore
     fun testPolygonTypeConvex() {
         val p1 = Point(0.0, 0.0)
         val p2 = Point(1.0, 0.0)

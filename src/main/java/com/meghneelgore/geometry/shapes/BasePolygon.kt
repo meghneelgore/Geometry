@@ -10,6 +10,7 @@ import com.meghneelgore.geometry.primitives.Segment
 import com.meghneelgore.geometry.shapes.Polygon.PolygonType
 import com.meghneelgore.geometry.shapes.Polygon.PolygonType.Concave
 import com.meghneelgore.geometry.shapes.Polygon.PolygonType.Convex
+import java.lang.Math.abs
 
 /**
  * Abstract base class for Polygons.
@@ -92,17 +93,14 @@ protected constructor(pointsList: ImmutableList<Point>) : Polygon {
     /**
      * Finds whether the polygon is Convex or Concave
      */
-    // TODO this doesn't work right now
     private fun findPolygonType(segmentsList: ImmutableList<Segment>): PolygonType {
-        for (i in 0 until segmentsList.size) {
+        for (i in 0 until segmentsList.size - 1) {
             val segment1 = segmentsList[i]
             val segment2 = segmentsList[i + 1]
-            if (segment1.anticlockwiseAngleWith(segment2) < Math.PI) return Concave
+            if (abs(segment1.angleWith(segment2)) > Math.PI) return Concave
         }
         val segment1 = segmentsList[segmentsList.size - 1]
         val segment2 = segmentsList[0]
-        if (segment1.anticlockwiseAngleWith(segment2) < Math.PI) return Concave
-
-        return Convex
+        return if (abs(segment1.angleWith(segment2)) > Math.PI) Concave else Convex
     }
 }

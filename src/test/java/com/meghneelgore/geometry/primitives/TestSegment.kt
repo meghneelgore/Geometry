@@ -164,7 +164,7 @@ class TestSegment {
         p2 = Point(0.0, 2.0)
         s2 = Segment(p1, p2)
 
-        assertEquals("Angle calculated wrongly", Math.PI / 2, s1.angleWith(s2), 0.0)
+        assertEquals("Angle calculated wrongly", -Math.PI / 2, s1.angleWith(s2), 0.0)
     }
 
     @Test
