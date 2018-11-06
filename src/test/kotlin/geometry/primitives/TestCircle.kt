@@ -1,7 +1,6 @@
 package geometry.primitives
 
-import geometry.primitives.Circle
-import geometry.primitives.Point
+import geometry.shapes.Circle
 import junit.framework.TestCase.*
 import org.junit.Test
 

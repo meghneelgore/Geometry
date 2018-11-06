@@ -2,6 +2,8 @@ package geometry.shapes
 
 import com.google.common.collect.ImmutableList
 import geometry.primitives.Point
+import geometry.primitives.Polygon
+import java.awt.Graphics2D
 
 data class GenericPolygon(override val pointsList: ImmutableList<Point>) : BasePolygon(pointsList) {
 
@@ -11,4 +13,6 @@ data class GenericPolygon(override val pointsList: ImmutableList<Point>) : BaseP
     override fun copyPolygon(pointsList: ImmutableList<Point>): Polygon {
         return copy(pointsList = pointsList)
     }
+
+
 }

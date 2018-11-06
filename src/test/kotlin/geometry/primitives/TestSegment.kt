@@ -4,8 +4,7 @@
 
 package geometry.primitives
 
-import geometry.primitives.Point
-import geometry.primitives.Segment
+import geometry.shapes.Segment
 import org.junit.Assert
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue

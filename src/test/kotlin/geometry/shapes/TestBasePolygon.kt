@@ -6,13 +6,9 @@ package geometry.shapes
 
 import com.google.common.collect.ImmutableList
 import geometry.primitives.Point
-import geometry.primitives.Segment
-import geometry.shapes.BasePolygon
-import geometry.shapes.GenericPolygon
-import geometry.shapes.Polygon.PolygonType.Concave
-import geometry.shapes.Polygon.PolygonType.Convex
+import geometry.primitives.Polygon.PolygonType.Concave
+import geometry.primitives.Polygon.PolygonType.Convex
 import org.junit.Assert.assertEquals
-import org.junit.Ignore
 import org.junit.Test
 import org.mockito.Mockito
 

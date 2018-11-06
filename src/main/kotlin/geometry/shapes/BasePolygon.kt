@@ -6,10 +6,11 @@ package geometry.shapes
 
 import com.google.common.collect.ImmutableList
 import geometry.primitives.Point
-import geometry.primitives.Segment
-import geometry.shapes.Polygon.PolygonType
-import geometry.shapes.Polygon.PolygonType.Concave
-import geometry.shapes.Polygon.PolygonType.Convex
+import geometry.primitives.Polygon
+import geometry.primitives.Polygon.PolygonType
+import geometry.primitives.Polygon.PolygonType.Concave
+import geometry.primitives.Polygon.PolygonType.Convex
+import java.awt.Graphics2D
 import java.lang.Math.abs
 
 /**
@@ -41,32 +42,46 @@ protected constructor(pointsList: ImmutableList<Point>) : Polygon {
     final override val polygonType: PolygonType = findPolygonType(segmentsList)
 
     /**
-     * Translates this polygon in the x direction and returns a copy
+     * Returns a copy of this polygon that is translated in the x direction.
      */
     override fun translateX(translation: Double): Polygon {
         val builder = ImmutableList.builder<Point>()
-        for (point in pointsList) {
-            builder.add(point.translateX(translation))
-        }
+        pointsList.forEach { point -> builder.add(point.translateX(translation)) }
         return this.copyPolygon(builder.build())
     }
 
     /**
-     * Translates this polygon in the x direction and returns a copy
+     * Returns a copy of this polygon that is translated in the y direction.
      */
     override fun translateY(translation: Double): Polygon {
         val builder = ImmutableList.builder<Point>()
-        for (point in pointsList) {
-            builder.add(point.translateY(translation))
-        }
+        pointsList.forEach { point -> builder.add(point.translateY(translation)) }
         return copyPolygon(builder.build())
     }
 
+    /**
+     * Returns a copy of this polygon that is rotated by angle theta.
+     */
+    override fun rotate(theta: Double): Polygon {
+        val builder = ImmutableList.builder<Point>()
+        pointsList.forEach { point -> builder.add(point.rotate(theta)) }
+        return copyPolygon(builder.build())
+    }
+
+    /**
+     * Returns a copy of this polygon that is rotated by angle theta around a given point
+     */
+    override fun rotateAround(theta: Double, aroundPoint: Point): Polygon {
+        val builder = ImmutableList.builder<Point>()
+        pointsList.forEach { point -> builder.add(point.rotateAround(theta, aroundPoint)) }
+        return copyPolygon(builder.build())
+    }
 
     /**
      * Creates a copy of the polygon with a new points list
      */
     abstract fun copyPolygon(pointsList: ImmutableList<Point>): Polygon
+
 
     /**
      * Determines if this shape overlaps another
@@ -75,11 +90,7 @@ protected constructor(pointsList: ImmutableList<Point>) : Polygon {
      * @return true iff this shape overlaps the other
      */
     override fun overlaps(polygon: Polygon): Boolean {
-        for (s1 in segmentsList) {
-            for (s2 in polygon.segmentsList) {
-                if (s1.intersectsWith(s2)) return true
-            }
-        }
+        segmentsList.forEach { s1 -> polygon.segmentsList.forEach { s2 -> if (s1.intersectsWith(s2)) return true } }
         return false
     }
 
@@ -129,5 +140,9 @@ protected constructor(pointsList: ImmutableList<Point>) : Polygon {
         val segment1 = segmentsList[segmentsList.size - 1]
         val segment2 = segmentsList[0]
         return if (abs(segment1.angleWith(segment2)) > Math.PI) Concave else Convex
+    }
+
+    override fun render(graphics: Graphics2D) {
+        segmentsList.forEach { segment -> segment.render(graphics) }
     }
 }

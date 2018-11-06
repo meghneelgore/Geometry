@@ -24,16 +24,29 @@ data class Point(val x: Double, val y: Double) {
      * Creates a new point translated in the x direction
      */
     fun translateX(translation: Double): Point {
-        return copy(x = this.x + translation, y = this.y)
+        return copy(x = this.x + translation)
     }
 
     /**
      * Creates a new point translated in the y direction
      */
     fun translateY(translation: Double): Point {
-        return copy(x = this.x, y = this.y + translation)
+        return copy(y = this.y + translation)
     }
 
+    /**
+     * Creates a new point rotated around the origin by angle theta
+     */
+    fun rotate(theta: Double): Point {
+        return copy(x = x * Math.cos(theta) - this.y * Math.sin(theta), y = y * Math.cos(theta) + x * Math.sin(theta))
+    }
+
+    /**
+     * Creates a new point rotated around the given point
+     */
+    fun rotateAround(theta: Double, aroundPoint: Point): Point {
+        return translateX(-aroundPoint.x).translateY(-aroundPoint.y).rotate(theta).translateX(aroundPoint.x).translateY(aroundPoint.y)
+    }
 
     /**
      * toString method

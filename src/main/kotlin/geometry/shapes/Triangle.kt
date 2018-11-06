@@ -6,6 +6,7 @@ package geometry.shapes
 
 import com.google.common.collect.ImmutableList
 import geometry.primitives.Point
+import geometry.primitives.Polygon
 
 /**
  * Class depicting a triangle.
@@ -44,5 +45,6 @@ data class Triangle(override val pointsList: ImmutableList<Point>) : BasePolygon
     override fun copyPolygon(pointsList: ImmutableList<Point>): Polygon {
         return copy(pointsList = pointsList)
     }
+
 
 }

@@ -2,10 +2,13 @@
  * Copyright (c) 2018.  Meghneel Gore (meghneel.gore@gmail.com)
  */
 
-package geometry.primitives
+package geometry.shapes
 
+import geometry.primitives.Point
 import geometry.primitives.Point.Companion.getThreePointOrientation
 import geometry.primitives.Point.Orientation.COLLINEAR
+import geometry.primitives.Shape
+import java.awt.Graphics2D
 import java.lang.Math.*
 
 /**
@@ -13,8 +16,7 @@ import java.lang.Math.*
  *
  * @author Meghneel Gore meghneel.gore@gmail.com
  */
-data class Segment(val p1: Point, val p2: Point) {
-
+data class Segment(val p1: Point, val p2: Point) : Shape {
 
     /**
      * Length of the segment.
@@ -130,6 +132,7 @@ data class Segment(val p1: Point, val p2: Point) {
         return min(diff, abs(Math.PI * 2 - diff))
     }
 
+
     /**
      * Determines if a point lies on the segment
      *
@@ -148,5 +151,25 @@ data class Segment(val p1: Point, val p2: Point) {
 
     override fun toString(): String {
         return "[$p1 - $p2]"
+    }
+
+    override fun translateX(translation: Double): Shape {
+        return copy(p1 = p1.translateX(translation), p2 = p2.translateX(translation))
+    }
+
+    override fun translateY(translation: Double): Shape {
+        return copy(p1 = p1.translateY(translation), p2 = p2.translateY(translation))
+    }
+
+    override fun rotate(theta: Double): Shape {
+        return copy(p1 = p1.rotate(theta), p2 = p2.rotate(theta))
+    }
+
+    override fun rotateAround(theta: Double, aroundPoint: Point): Shape {
+        return copy(p1 = p1.rotateAround(theta, aroundPoint), p2 = p2.rotateAround(theta, aroundPoint))
+    }
+
+    override fun render(graphics: Graphics2D) {
+        graphics.drawLine(p1.x.toInt(), p1.y.toInt(), p2.x.toInt(), p2.y.toInt())
     }
 }

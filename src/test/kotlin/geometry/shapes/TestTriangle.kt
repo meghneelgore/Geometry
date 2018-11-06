@@ -6,7 +6,6 @@ package geometry.shapes
 
 import com.google.common.collect.ImmutableList
 import geometry.primitives.Point
-import geometry.primitives.Segment
 import junit.framework.Assert.assertEquals
 import org.junit.Assert
 import org.junit.Test

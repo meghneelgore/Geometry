@@ -2,18 +2,17 @@
  * Copyright (c) 2018.  Meghneel Gore (meghneel.gore@gmail.com)
  */
 
-package geometry.shapes
+package geometry.primitives
 
 import com.google.common.collect.ImmutableList
-import geometry.primitives.Point
-import geometry.primitives.Segment
+import geometry.shapes.Segment
 
 /**
  * Interface defining the contract for shapes
  *
  * @author Meghneel Gore meghneel.gore@gmail.com
  */
-interface Polygon {
+interface Polygon : Shape {
 
     /**
      * The list of points making up the polygon in an anticlockwise direction
@@ -54,20 +53,11 @@ interface Polygon {
      */
     fun overlaps(polygon: Polygon): Boolean
 
-    /**
-     * Translates the current polygon and returns a new Polygon translated in the x direction
-     */
-    fun translateX(translation: Double): Polygon
-
-    /**
-     * Translates the current polygon and returns a new Polygon translated in the y direction
-     */
-    fun translateY(translation: Double): Polygon
-
-
     enum class PolygonType {
         Convex,
         Concave,
         Complex
     }
+
+
 }
