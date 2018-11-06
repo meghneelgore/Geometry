@@ -48,6 +48,10 @@ data class Point(val x: Double, val y: Double) {
         return translateX(-aroundPoint.x).translateY(-aroundPoint.y).rotate(theta).translateX(aroundPoint.x).translateY(aroundPoint.y)
     }
 
+    fun scale(scaleFactor: Double): Point {
+        return copy(x = x * scaleFactor, y = y * scaleFactor)
+    }
+
     /**
      * toString method
      *

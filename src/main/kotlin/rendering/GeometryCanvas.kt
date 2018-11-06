@@ -1,9 +1,9 @@
 package rendering
 
 import board.Board
-import java.awt.Canvas
-import java.awt.Graphics
-import java.awt.Graphics2D
+import java.awt.*
+import java.awt.event.WindowAdapter
+import java.awt.event.WindowEvent
 import java.util.*
 
 class GeometryCanvas(val board: Board) : Canvas() {
@@ -21,5 +21,30 @@ class GeometryCanvas(val board: Board) : Canvas() {
         super.paint(g)
         g as Graphics2D
         board.paint(g)
+    }
+}
+
+class CanvasRenderer(val canvas: Canvas) {
+
+    private val mainFrame: Frame = Frame("Geometry")
+    private val controlPanel: Panel = Panel()
+
+    init {
+        prepareGUI()
+    }
+
+    private fun prepareGUI() {
+        mainFrame.setSize(1600, 2000)
+        mainFrame.layout = GridLayout(1, 1)
+        mainFrame.addWindowListener(object : WindowAdapter() {
+            override fun windowClosing(windowEvent: WindowEvent?) {
+                System.exit(0)
+            }
+        })
+        controlPanel.layout = FlowLayout()
+        controlPanel.add(canvas)
+
+        mainFrame.add(controlPanel)
+        mainFrame.isVisible = true
     }
 }

@@ -41,4 +41,8 @@ data class Sector(val center: Point, val radius: Double, val startAngle: UnitCir
     override fun renderFilled(graphics: Graphics2D) {
         graphics.fillArc(center.x.toInt(), center.y.toInt(), radius.toInt() * 2, radius.toInt() * 2, startAngle.toDegrees.toInt(), endAngle.toDegrees.toInt())
     }
+
+    override fun scale(scaleFactor: Double): Shape {
+        return copy(center = center.scale(scaleFactor), radius = radius * scaleFactor)
+    }
 }

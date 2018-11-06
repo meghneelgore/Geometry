@@ -176,4 +176,8 @@ data class Segment(val p1: Point, val p2: Point) : Shape {
     override fun renderFilled(graphics: Graphics2D) {
         graphics.drawLine(p1.x.toInt(), p1.y.toInt(), p2.x.toInt(), p2.y.toInt())
     }
+
+    override fun scale(scaleFactor: Double): Shape {
+        return copy(p1 = p1.scale(scaleFactor), p2 = p2.scale(scaleFactor))
+    }
 }

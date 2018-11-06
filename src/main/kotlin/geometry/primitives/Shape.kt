@@ -28,6 +28,7 @@ interface Shape {
      */
     fun rotate(theta: Double): Shape
 
+    fun scale(scaleFactor: Double): Shape
     /**
      * Rotates the current Shape by the given angle around the given point and returns a new Shape
      */

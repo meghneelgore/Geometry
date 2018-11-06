@@ -10,6 +10,7 @@ import geometry.primitives.Polygon
 import geometry.primitives.Polygon.PolygonType
 import geometry.primitives.Polygon.PolygonType.Concave
 import geometry.primitives.Polygon.PolygonType.Convex
+import geometry.primitives.Shape
 import java.awt.Graphics2D
 import java.lang.Math.abs
 
@@ -160,5 +161,14 @@ protected constructor(pointsList: ImmutableList<Point>) : Polygon {
 
     override fun renderFilled(graphics: Graphics2D) {
         graphics.fillPolygon(xCoordinates, yCoordinates, pointsList.size)
+    }
+
+    override fun scale(scaleFactor: Double): Shape {
+        if (scaleFactor == 0.0) return this
+        val list = ImmutableList.builder<Point>()
+        pointsList.forEach { point ->
+            list.add(if (scaleFactor != 0.0) point.scale(scaleFactor) else Point(0.0, 0.0))
+        }
+        return copyPolygon(list.build())
     }
 }

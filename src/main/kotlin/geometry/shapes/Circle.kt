@@ -5,8 +5,6 @@ import geometry.primitives.Shape
 import java.awt.Graphics2D
 
 data class Circle(val center: Point, val radius: Double) : Shape {
-
-
     val circumference = 2 * Math.PI * radius
     val area = Math.PI * Math.pow(radius, 2.0)
 
@@ -47,5 +45,9 @@ data class Circle(val center: Point, val radius: Double) : Shape {
 
     override fun renderFilled(graphics: Graphics2D) {
         graphics.fillArc(center.x.toInt(), center.y.toInt(), radius.toInt() * 2, radius.toInt() * 2, 0, 360)
+    }
+
+    override fun scale(scaleFactor: Double): Shape {
+        return copy(center = center.scale(scaleFactor), radius = radius * scaleFactor)
     }
 }
