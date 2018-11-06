@@ -1,8 +1,10 @@
 package board
 
 import com.google.common.collect.ImmutableList
-import geometry.shapes.Circle
 import geometry.primitives.Point
+import geometry.primitives.UnitCircleAngle
+import geometry.shapes.Circle
+import geometry.shapes.Sector
 import geometry.shapes.Triangle
 import rendering.CanvasRenderer
 import rendering.GeometryCanvas
@@ -16,6 +18,7 @@ class Board {
     val triangle1 = Triangle(ImmutableList.of(Point(random.nextInt(0, 500).toDouble(), random.nextInt(0, 500).toDouble()), Point(random.nextInt(0, 500).toDouble(), 100.0), Point(random.nextInt(0, 500).toDouble(), random.nextInt(0, 500).toDouble())))
     val triangle2 = Triangle(ImmutableList.of(Point(random.nextInt(0, 500).toDouble(), random.nextInt(0, 500).toDouble()), Point(random.nextInt(0, 500).toDouble(), 100.0), Point(random.nextInt(0, 500).toDouble(), random.nextInt(0, 500).toDouble())))
     val circle = Circle(Point(random.nextInt(0, 500).toDouble(), random.nextInt(0, 500).toDouble()), 100.0)
+    val sector = Sector(Point(300.0, 300.0), 100.0, UnitCircleAngle(random.nextDouble(0.0, Math.PI * 2)), UnitCircleAngle(random.nextDouble(0.0, Math.PI * 2)))
     var theta = 0.0
 
     init {
@@ -29,8 +32,9 @@ class Board {
 
         triangle1.translateX(10 * Math.cos(theta)).translateY(10 * Math.sin(theta)).render(graphics)
         triangle2.translateX(Math.cos(theta)).translateY(Math.sin(theta)).rotateAround(theta, Point(300.0, 300.0)).render(graphics)
-        circle.rotate(theta).render(graphics)
-        circle.translateX(10.0).rotateAround(theta, Point(300.0, 300.0)).render(graphics)
+//        circle.rotate(theta).render(graphics)
+        circle.translateX(100.0).rotateAround(theta, Point(200.0, 100.0)).render(graphics)
+        sector.rotateAround(theta, Point(250.0, 250.0)).render(graphics)
         theta += 0.02
 
 //        triangle1.translateX(random.nextInt(10, 20).toDouble()).translateY(random.nextInt(10, 20).toDouble()).render(graphics)

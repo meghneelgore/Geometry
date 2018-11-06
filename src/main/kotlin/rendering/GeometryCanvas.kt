@@ -9,14 +9,13 @@ import java.util.*
 class GeometryCanvas(val board: Board) : Canvas() {
 
     init {
-        setSize(500, 500)
+        setSize(1600, 2000)
         Timer().schedule(object : TimerTask() {
             override fun run() {
                 repaint()
             }
-        }, 0, 16)
+        }, 0, 10)
     }
-
 
     override fun paint(g: Graphics) {
         super.paint(g)
