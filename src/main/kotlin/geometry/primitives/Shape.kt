@@ -9,6 +9,11 @@ interface Shape {
     fun render(graphics: Graphics2D)
 
     /**
+     * Renders the Shape filled
+     */
+    fun renderFilled(graphics: Graphics2D)
+
+    /**
      * Translates the current Shape and returns a new Shape translated in the x direction
      */
     fun translateX(translation: Double): Shape

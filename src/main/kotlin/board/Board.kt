@@ -30,9 +30,9 @@ class Board {
     fun paint(graphics: Graphics2D) {
 
 
-        triangle1.translateX(10 * Math.cos(theta)).translateY(10 * Math.sin(theta)).render(graphics)
+        triangle1.translateX(10 * Math.cos(theta)).translateY(10 * Math.sin(theta)).renderFilled(graphics)
         triangle2.translateX(Math.cos(theta)).translateY(Math.sin(theta)).rotateAround(theta, Point(300.0, 300.0)).render(graphics)
-//        circle.rotate(theta).render(graphics)
+        circle.rotate(theta).renderFilled(graphics)
         circle.translateX(100.0).rotateAround(theta, Point(200.0, 100.0)).render(graphics)
         sector.rotateAround(theta, Point(250.0, 250.0)).render(graphics)
         theta += 0.02

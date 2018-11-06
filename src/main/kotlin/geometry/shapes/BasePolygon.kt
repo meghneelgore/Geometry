@@ -26,6 +26,9 @@ abstract class BasePolygon
  */
 protected constructor(pointsList: ImmutableList<Point>) : Polygon {
 
+    private val xCoordinates = IntArray(pointsList.size)
+
+    private val yCoordinates = IntArray(pointsList.size)
     /**
      * List of segments that make up the shape
      */
@@ -40,6 +43,15 @@ protected constructor(pointsList: ImmutableList<Point>) : Polygon {
      * Polygon type of the polygon. Possible types are Complex, Convex, or Concave
      */
     final override val polygonType: PolygonType = findPolygonType(segmentsList)
+
+    init {
+        var i = 0
+        pointsList.forEach { point ->
+            xCoordinates[i] = point.x.toInt()
+            yCoordinates[i] = point.y.toInt()
+            i++
+        }
+    }
 
     /**
      * Returns a copy of this polygon that is translated in the x direction.
@@ -144,5 +156,9 @@ protected constructor(pointsList: ImmutableList<Point>) : Polygon {
 
     override fun render(graphics: Graphics2D) {
         segmentsList.forEach { segment -> segment.render(graphics) }
+    }
+
+    override fun renderFilled(graphics: Graphics2D) {
+        graphics.fillPolygon(xCoordinates, yCoordinates, pointsList.size)
     }
 }

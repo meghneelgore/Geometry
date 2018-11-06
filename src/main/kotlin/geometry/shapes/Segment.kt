@@ -172,4 +172,8 @@ data class Segment(val p1: Point, val p2: Point) : Shape {
     override fun render(graphics: Graphics2D) {
         graphics.drawLine(p1.x.toInt(), p1.y.toInt(), p2.x.toInt(), p2.y.toInt())
     }
+
+    override fun renderFilled(graphics: Graphics2D) {
+        graphics.drawLine(p1.x.toInt(), p1.y.toInt(), p2.x.toInt(), p2.y.toInt())
+    }
 }

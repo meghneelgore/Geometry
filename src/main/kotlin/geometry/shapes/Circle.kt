@@ -44,4 +44,8 @@ data class Circle(val center: Point, val radius: Double) : Shape {
     override fun render(graphics: Graphics2D) {
         graphics.drawArc(center.x.toInt(), center.y.toInt(), radius.toInt() * 2, radius.toInt() * 2, 0, 360)
     }
+
+    override fun renderFilled(graphics: Graphics2D) {
+        graphics.fillArc(center.x.toInt(), center.y.toInt(), radius.toInt() * 2, radius.toInt() * 2, 0, 360)
+    }
 }

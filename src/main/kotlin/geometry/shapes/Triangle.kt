@@ -45,6 +45,4 @@ data class Triangle(override val pointsList: ImmutableList<Point>) : BasePolygon
     override fun copyPolygon(pointsList: ImmutableList<Point>): Polygon {
         return copy(pointsList = pointsList)
     }
-
-
 }
