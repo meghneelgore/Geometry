@@ -22,4 +22,6 @@ data class UnitCircleAngle(private val angle: Double) {
         } else {
             angle
         }
+
+    val toDegrees = reducedAngle * 180 / Math.PI
 }
