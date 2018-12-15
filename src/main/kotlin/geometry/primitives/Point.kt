@@ -5,6 +5,7 @@
 package geometry.primitives
 
 import geometry.primitives.Point.Orientation.*
+import java.awt.Graphics2D
 
 /**
  * Class depicting a point in 2-d space.
@@ -52,6 +53,13 @@ data class Point(val x: Double, val y: Double) {
         return copy(x = x * scaleFactor, y = y * scaleFactor)
     }
 
+    fun midPoint(otherPoint: Point): Point = midPoint(this, otherPoint)
+
+
+    fun render(graphics: Graphics2D) {
+        graphics.drawArc(x.toInt(), y.toInt(), 1, 1, 0, 360)
+    }
+
     /**
      * toString method
      *
@@ -83,10 +91,10 @@ data class Point(val x: Double, val y: Double) {
          * @return `CLOCKWISE`, `COUNTER_CLOCKWISE`, or `COLLINEAR` depending on the orientation
          */
         fun getThreePointOrientation(p: Point, q: Point, r: Point): Orientation {
-            val `val` = (q.y - p.y) * (r.x - q.x) - (q.x - p.x) * (r.y - q.y)
+            val value = (q.y - p.y) * (r.x - q.x) - (q.x - p.x) * (r.y - q.y)
 
-            if (`val` == 0.0) return COLLINEAR
-            return if (`val` > 0) {
+            if (value == 0.0) return COLLINEAR
+            return if (value > 0) {
                 CLOCKWISE
             } else COUNTER_CLOCKWISE
         }
@@ -105,5 +113,25 @@ data class Point(val x: Double, val y: Double) {
             val r = pointList[2]
             return getThreePointOrientation(p, q, r)
         }
+
+        fun midPoint(p1: Point, p2: Point): Point {
+            return Point((p1.x + p2.x) / 2.0, (p1.y + p2.y) / 2.0)
+        }
+
+        fun midPoint(pointList: List<Point>): Point {
+            if (pointList.size != 2) throw java.lang.IllegalArgumentException("Cannot compute midpoint of given list")
+            return midPoint(p1 = pointList[0], p2 = pointList[1])
+        }
     }
+
+
+    operator fun times(factor: Double) = Point(x * factor, y * factor)
+    operator fun div(factor: Double): Point {
+        if (factor == 0.0) throw java.lang.IllegalArgumentException("Can't divide by 0")
+        return Point(x / factor, y / factor)
+    }
+
+
 }
+
+

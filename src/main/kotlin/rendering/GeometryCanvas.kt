@@ -6,7 +6,7 @@ import java.awt.event.WindowAdapter
 import java.awt.event.WindowEvent
 import java.util.*
 
-class GeometryCanvas(val board: Board) : Canvas() {
+class GeometryCanvas(private val board: Board) : Canvas() {
 
     init {
         setSize(1600, 2000)
@@ -14,8 +14,9 @@ class GeometryCanvas(val board: Board) : Canvas() {
             override fun run() {
                 repaint()
             }
-        }, 0, 10)
+        }, 0, 10000)
     }
+
 
     override fun paint(g: Graphics) {
         super.paint(g)
@@ -24,12 +25,13 @@ class GeometryCanvas(val board: Board) : Canvas() {
     }
 }
 
-class CanvasRenderer(val canvas: Canvas) {
+class CanvasRenderer(private val canvas: Canvas) {
 
     private val mainFrame: Frame = Frame("Geometry")
     private val controlPanel: Panel = Panel()
 
     init {
+
         prepareGUI()
     }
 
@@ -43,7 +45,6 @@ class CanvasRenderer(val canvas: Canvas) {
         })
         controlPanel.layout = FlowLayout()
         controlPanel.add(canvas)
-
         mainFrame.add(controlPanel)
         mainFrame.isVisible = true
     }

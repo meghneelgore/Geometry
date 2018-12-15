@@ -80,6 +80,11 @@ data class Segment(val p1: Point, val p2: Point) : Shape {
     }
 
     /**
+     * Determines the midpoint of the segment
+     */
+    fun midPoint(): Point = Point.midPoint(p1, p2)
+
+    /**
      * Determines whether this segment intersects another.
      *
      * @param segment The other segment.
@@ -140,7 +145,7 @@ data class Segment(val p1: Point, val p2: Point) : Shape {
      *
      * @return true if and only if point q lies on the segment
      */
-    internal fun onSegment(q: Point): Boolean {
+    private fun onSegment(q: Point): Boolean {
         val p = p1
         val r = p2
 
@@ -169,6 +174,11 @@ data class Segment(val p1: Point, val p2: Point) : Shape {
         return copy(p1 = p1.rotateAround(theta, aroundPoint), p2 = p2.rotateAround(theta, aroundPoint))
     }
 
+    override fun scale(scaleFactor: Double): Shape {
+        return copy(p1 = p1.scale(scaleFactor), p2 = p2.scale(scaleFactor))
+    }
+
+
     override fun render(graphics: Graphics2D) {
         graphics.drawLine(p1.x.toInt(), p1.y.toInt(), p2.x.toInt(), p2.y.toInt())
     }
@@ -177,7 +187,5 @@ data class Segment(val p1: Point, val p2: Point) : Shape {
         graphics.drawLine(p1.x.toInt(), p1.y.toInt(), p2.x.toInt(), p2.y.toInt())
     }
 
-    override fun scale(scaleFactor: Double): Shape {
-        return copy(p1 = p1.scale(scaleFactor), p2 = p2.scale(scaleFactor))
-    }
+
 }
